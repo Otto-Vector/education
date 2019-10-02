@@ -1,22 +1,22 @@
 @import "utils/libs";
+@import "utils/fonts";
 @import "utils/vars";
 @import "utils/mixins";
-@import "utils/fonts";
 @import "utils/reset";
 
-html {
+html { //уменьшение размера текста, в зависимости от ширины экрана
   line-height: $mainLineHeight;
-	font-size: $mainFontSize;
-	color: $mainFontColor;
+  font-size: $mainFontSize;
+  color: $mainFontColor;
   height: 100%;
   @media screen and (max-width: $desktopWidth) {
-		font-size: 16px;
+    font-size: $mainFontSize - 1px;
   }
   @media screen and (max-width: $tableWidth) {
-		font-size: 15px;
+    font-size: $mainFontSize - 2px;
   }
   @media screen and (max-width: $phoneWidth) {
-		font-size: 14px;
+    font-size: $mainFontSize - 3px;
   }
 }
 
@@ -24,7 +24,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: $mainFont;
-	font-size: $mainFontSize;
+  //font-size: $mainFontSize;
   font-weight: $mainFontWeight;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -32,7 +32,30 @@ body {
 
 *, *:before, *:after { box-sizing: border-box; }
 
-h1, h2, h3, h4, h5, h6 { margin: 0; }
+//////////////ЗАГОЛОВКИ////////////////////
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin: 0; }
+
+h1, h2 {
+  font-family: $headerFont;
+}
+
+h1 {
+  font-size: rem(24);
+  line-height: rem(30);
+}
+
+h2 {
+  font-size: rem(19);
+  line-height: rem(24);
+}
+
+h3 {
+  font-family: $mainFont;
+  text-transform: uppercase;
+  line-height: rem(15);
+}
 
 a { text-decoration: none; }
 
@@ -42,18 +65,20 @@ ul, li {
   list-style-type: none;
 }
 
+//каждый блок на сайте всегда правильно делать через это
 section, .section {
   position: relative;
-  padding: 40px 0;
-  @media screen and (max-width: $desktopWidth) {
-    padding: 36px 0;
-  }
-  @media screen and (max-width: $desktopWidth) {
-    padding: 28px 0;
-  }
-  @media screen and (max-width: $desktopWidth) {
-    padding: 20px 0;
-  }
+  padding: rem(40) 0; //использование функции rem() значение которой зависит от размера шрифта
+  // padding: 40px 0;
+  // @media screen and (max-width: $desktopWidth) {
+  //   padding: 36px 0;
+  // }
+  // @media screen and (max-width: $tableWidth) {
+  //   padding: 28px 0;
+  // }
+  // @media screen and (max-width: $phoneWidth) {
+  //   padding: 20px 0;
+  // }
 }
 
 .wrapper {
@@ -69,20 +94,28 @@ section, .section {
   min-height: 100vh;
 }
 
+.item-title {
+  color: $dark-50;
+}
+
 .container {
   width: 100%;
   flex: 0 0 auto;
   position: relative;
   margin: 0 auto;
-  max-width: $desktopWidth;
+  max-width: $maxDesktopWidth;
+  //меняет размеры основного экрана контента
+  @media screen and (max-width: $desktopWidth) {
+    max-width: $smDesctopWidth;
+  }
   @media screen and (max-width: $smDesktopWidth) {
-    max-width: tableWidth;
+    max-width: $tableWidth;
   }
   @media screen and (max-width: $tableWidth) {
-    max-width: phoneWidth;
+    max-width: $phoneWidth;
   }
   @media screen and (max-width: $phoneWidth) {
-    max-width: smPhoneWidth;
+    max-width: $smPhoneWidth;
   }
 }
 

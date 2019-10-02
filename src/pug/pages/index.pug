@@ -1,0 +1,28 @@
+extends ../layout/main
+
+//- block head
+//-   link(href="assets/css/minimum.css" rel="stylesheet")
+
+block variables
+  - var title = 'Web(SERGEY)pack + Pug';
+  - var description = 'Description for Webpack + Pug';
+  - var pageClass = 'index-page';
+
+block content
+  section
+    .container
+      +item('item title I', 'blue')
+      +item('item title II', 'green')
+      +item('item title III', 'pink')
+  example-component
+    +foot(50)
+    +foot(40,-5)
+
+block script
+  script(type='text/javascript').
+    const foo = true;
+    let bar = function() {};
+    if (foo) {
+    bar(1 + 4)
+    }
+
