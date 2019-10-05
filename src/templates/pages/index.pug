@@ -1,0 +1,14 @@
+extends ../main
+
+//- block head
+//-   link(href="assets/css/minimum.css" rel="stylesheet")
+
+block variables
+	- var title = 'elements';
+	- var description = 'Elements page';
+	- var pageClass = 'elem-page';
+
+block content
+	section
+		.container
+			+text-field('Y', 'nnnnnn')

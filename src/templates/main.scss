@@ -2,7 +2,6 @@
 @import "utils/fonts";
 @import "utils/vars";
 @import "utils/mixins";
-@import "utils/reset";
 
 html { //уменьшение размера текста, в зависимости от ширины экрана
   line-height: $mainLineHeight;
