@@ -1,6 +1,7 @@
 // Font
-$headerFont              : Quicksand, Helvetica, sans-serif, Arial;
+$headerFont              : Quicksand-Bold, Helvetica, sans-serif, Arial;
 $mainFont                : Montserrat, Helvetica, Arial, sans-serif;
+//$mainBoldFont            : Montserrat-Bold, Helvetica, Arial, sans-serif;
 // Main color
 $dark-100          : #1f2041;
 $dark-75          : rgba(#1f2041,.75);
@@ -12,8 +13,8 @@ $green-color            : #6fcf97;
 
 // Size
 $mainFontColor           : $dark-75;
-$mainFontSize            : 14px;
-$mainFontWeight          : 400;
+$mainFontSize            : 12px;
+$mainFontWeight          : normal;
 $mainLineHeight          : 24px;
 
 $maxDesktopWidth         : 1920px;

@@ -1,7 +1,9 @@
+//@import "utils/reset";
 @import "utils/libs";
 @import "utils/fonts";
 @import "utils/vars";
 @import "utils/mixins";
+@import "utils/main_elements";
 
 html { //уменьшение размера текста, в зависимости от ширины экрана
   line-height: $mainLineHeight;
@@ -9,13 +11,13 @@ html { //уменьшение размера текста, в зависимос
   color: $mainFontColor;
   height: 100%;
   @media screen and (max-width: $desktopWidth) {
-    font-size: $mainFontSize - 1px;
+    font-size: $mainFontSize;
   }
   @media screen and (max-width: $tableWidth) {
-    font-size: $mainFontSize - 2px;
+    font-size: $mainFontSize - 1px;
   }
   @media screen and (max-width: $phoneWidth) {
-    font-size: $mainFontSize - 3px;
+    font-size: $mainFontSize - 2px;
   }
 }
 
@@ -50,8 +52,9 @@ h2 {
   line-height: rem(24);
 }
 
-h3 {
-  font-family: $mainFont;
+h3, label {
+  //font-family: $mainBoldFont;
+  font-weight: bold;
   text-transform: uppercase;
   line-height: rem(15);
 }
@@ -105,7 +108,7 @@ section, .section {
   max-width: $maxDesktopWidth;
   //меняет размеры основного экрана контента
   @media screen and (max-width: $desktopWidth) {
-    max-width: $smDesctopWidth;
+    max-width: $smDesktopWidth;
   }
   @media screen and (max-width: $smDesktopWidth) {
     max-width: $tableWidth;

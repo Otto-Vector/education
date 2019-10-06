@@ -2,5 +2,5 @@
 import './js/'
 
 // SCSS
-import './assets/scss/main.scss'
+import './templates/main.scss'
 
