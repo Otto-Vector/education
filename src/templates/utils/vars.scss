@@ -13,8 +13,8 @@ $green-color            : #6fcf97;
 
 // Size
 $mainFontColor           : $dark-75;
-$mainFontSize            : 12px;
-$mainFontWeight          : normal;
+$mainFontSize            : 14px;
+//$mainFontWeight          : normal;
 $mainLineHeight          : 24px;
 
 $maxDesktopWidth         : 1920px;
@@ -23,3 +23,31 @@ $smDesktopWidth          : 980px;
 $tableWidth              : 768px;
 $phoneWidth              : 480px;
 $smPhoneWidth            : 320px;
+
+//////////////ЗАГОЛОВКИ////////////////////
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin: 0;
+}
+
+h1, h2 {
+  font-family: $headerFont;
+}
+
+h1 {
+  font-size: rem(24);
+  line-height: rem(30);
+}
+
+h2 {
+  font-size: rem(19);
+  line-height: rem(24);
+}
+
+h3, label {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: $mainFontSize - 2px;
+  line-height: rem(15);
+  color: $dark-100;
+}

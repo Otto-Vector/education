@@ -13,7 +13,8 @@ block content
 	section
 		.container
 			+logo
-			+text-field('TEXT FIELD', 'Email')
+			+text-field({label: "text-field", placeholder: "Email", name: "Email",type: "email"})
+			+text-field({label: "text-field", value: "This is pretty awesome"})
 			span Можно пригласить гостей
 			h1 English
 			h1 Найдём номера под ваши пожелания

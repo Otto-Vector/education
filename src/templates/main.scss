@@ -3,8 +3,7 @@
 @import "utils/fonts";
 @import "utils/vars";
 @import "utils/mixins";
-@import "utils/main_elements";
-@import "utils/main_blocks";
+
 
 html { //уменьшение размера текста, в зависимости от ширины экрана
   line-height: $mainLineHeight;
@@ -26,39 +25,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: $mainFont;
-  //font-size: $mainFontSize;
-  font-weight: $mainFontWeight;
+//  font-weight: $mainFontWeight;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 *, *:before, *:after { box-sizing: border-box; }
-
-//////////////ЗАГОЛОВКИ////////////////////
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  margin: 0; }
-
-h1, h2 {
-  font-family: $headerFont;
-}
-
-h1 {
-  font-size: rem(24);
-  line-height: rem(30);
-}
-
-h2 {
-  font-size: rem(19);
-  line-height: rem(24);
-}
-
-h3, label {
-  //font-family: $mainBoldFont;
-  font-weight: bold;
-  text-transform: uppercase;
-  line-height: rem(15);
-}
 
 a { text-decoration: none; }
 
@@ -122,5 +94,6 @@ section, .section {
   }
 }
 
-// Modules
-// @import "modules/my-module.scss";
+// Modules//////////////////////////////
+@import "bem/main_elements";
+@import "bem/main_blocks";

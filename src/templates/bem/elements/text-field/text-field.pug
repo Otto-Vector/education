@@ -1,4 +1,11 @@
-mixin text-field(forLabel, forPlaceholder)
+// +text-field({label: "Label", placeholder: "Placeholder", id: "Id", name: "Name", type:"type", value: "Value"})
+
+mixin text-field(data,type)
 	.text-field
-		label.text-field__label=forLabel
-		input.text-field__input(type="text" Placeholder=forPlaceholder)
+		label.text-field__label(for=!(data.id)?data.name:data.id)=data.label
+		input.text-field__input(
+		 type=!(data.type)?"text":type,
+		 name=!(data.name)?data.id:data.name,
+		 id=!(data.id)?data.name:data.id
+		 value=data.value
+		 placeholder=data.placeholder)
