@@ -4,6 +4,7 @@
 @import "utils/vars";
 @import "utils/mixins";
 @import "utils/main_elements";
+@import "utils/main_blocks";
 
 html { //уменьшение размера текста, в зависимости от ширины экрана
   line-height: $mainLineHeight;

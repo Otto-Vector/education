@@ -1,3 +1,4 @@
-mixin text-field(forLabel='NO', valuee='YES')
-	label=forLabel
-		input.text-field(type="text" value=valuee)
+mixin text-field(forLabel, forPlaceholder)
+	.text-field
+		label.text-field__label=forLabel
+		input.text-field__input(type="text" Placeholder=forPlaceholder)

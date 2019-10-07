@@ -49,7 +49,9 @@ module.exports = {
     }
   },
   module: {
-    rules: [{
+    rules:
+    [
+    {
       test: /\.js$/,
       loader: 'babel-loader',
       exclude: '/node_modules/'
@@ -62,8 +64,10 @@ module.exports = {
     }, {
       test: /\.(png|jpg|gif|svg)$/,
       loader: 'file-loader',
+      exclude: '/src/assets/fonts/',
       options: {
-        name: '[name].[ext]'
+        name: '/assets/images/[name].[ext]',
+        context: ''
       }
     }, { //обработчик sass/scss
       test: /\.(scss|sass)$/,
@@ -85,8 +89,6 @@ module.exports = {
       test: /\.pug$/,
       loader: 'pug-loader'
     }
-
-
     ]
   },
   resolve: {
@@ -100,6 +102,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
+      //{ from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
       { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
       { from: `${PATHS.src}/static`, to: '' },
     ]),

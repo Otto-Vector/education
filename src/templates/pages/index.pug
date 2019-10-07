@@ -7,11 +7,13 @@ block variables
 	- var title = 'Elements';
 	- var description = 'Elements page';
 	- var pageClass = 'elem-page';
-
+	//- - var imgPath = 'assets/images/';
 block content
+	- var imgPath = 'assets/images/';
 	section
 		.container
-			+text-field('TEXT FIELD', 'Sergey')
+			+logo
+			+text-field('TEXT FIELD', 'Email')
 			span Можно пригласить гостей
 			h1 English
 			h1 Найдём номера под ваши пожелания
