@@ -5,16 +5,18 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Main const
-// see more: https://github.com/vedees/webpack-template/blob/master/README.md#main-const
 const PATHS = {
   src: path.join(__dirname, '../src'),
   dist: path.join(__dirname, '../dist'),
   assets: 'assets/',
-  img: 'assets/img/'
+  img: 'assets/img/',
+  fonts: 'assets/fonts',
+  fontsPath: path.resolve(__dirname, '../src/assets/fonts/'),
+  imgPath: path.resolve(__dirname, '../src/assets/img/')
 };
 
+
 // Pages const for HtmlWebpackPlugin
-// see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
 //const PAGES_DIR = `${PATHS.src}/pug/pages/`;
 const PAGES_DIR = `${PATHS.src}/templates/pages/`;
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'));
@@ -35,13 +37,14 @@ module.exports = {
   resolve: {
     alias: {
 //      '~': 'src',
-      '@images': path.resolve(__dirname, '../src/assets/img/')
+      '@images': `${PATHS.imgPath}`,
+      '@fonts' : `${PATHS.fontsPath}`,
     }
   },
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
     path: PATHS.dist,
-    publicPath: '/'
+    publicPath: '/' //для dev режима?
   },
   optimization: {
     splitChunks: {
@@ -65,16 +68,15 @@ module.exports = {
     }, {
       test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'file-loader',
-      exclude: '/src/assets/img/',
       options: {
+        outputPath: PATHS.fonts,
         name: '[name].[ext]'
       }
     }, {
-      test: /\.(png|jpg|gif|svg)$/,
+       test: /\.(png|jpg|gif)$/,
       loader: 'file-loader',
-      exclude: '/src/assets/fonts/',
       options: {
-        outputPath: `${PATHS.img}`,
+        outputPath: PATHS.img,
         name: '[name].[ext]'
       }
     }, { //обработчик sass/scss
@@ -104,10 +106,10 @@ module.exports = {
       filename: `${PATHS.assets}css/[name].[hash].css`,
     }),
     new CopyWebpackPlugin([
-      { from: `${PATHS.src}/${PATHS.img}`, to: `${PATHS.img}` },
-      //{ from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
-      { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
-      { from: `${PATHS.src}/static`, to: '' },
+//      { from: `${PATHS.src}/${PATHS.img}`, to: `${PATHS.img}` },
+//      { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
+//     { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
+//     { from: `${PATHS.src}/static`, to: '' },
     ]),
 
     // Automatic creation any html pages (Don't forget to RERUN dev server)
