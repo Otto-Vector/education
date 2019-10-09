@@ -3,14 +3,15 @@ $headerFont              : Quicksand-Bold, Helvetica, sans-serif, Arial;
 $mainFont                : Montserrat, Helvetica, Arial, sans-serif;
 //$mainBoldFont            : Montserrat-Bold, Helvetica, Arial, sans-serif;
 // Main color
-$dark-100          : #1f2041;
-$dark-75          : rgba(#1f2041,.75);
-$dark-50          : rgba(#1f2041,.5);
-$dark-25          : rgba(#1f2041,.25);
-$dark-5          : rgba(#1f2041,.05);
+$dark-100                : #1f2041;
+$dark-75                 : rgba(#1f2041,.75);
+$dark-50                 : rgba(#1f2041,.5);
+$dark-25                 : rgba(#1f2041,.25);
+$dark-5                  : rgba(#1f2041,.05);
 $purple-color            : #bc9cff;
-$green-color            : #6fcf97;
-
+$green-color             : #6fcf97;
+//animation
+$duration                : .7s; // время анимаций
 // Size
 $mainFontColor           : $dark-75;
 $mainFontSize            : 14px;
@@ -25,8 +26,7 @@ $phoneWidth              : 480px;
 $smPhoneWidth            : 320px;
 
 //////////////ЗАГОЛОВКИ////////////////////
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
+h1, h2, h3 {
   margin: 0;
 }
 
@@ -47,7 +47,11 @@ h2 {
 h3, label {
   font-weight: bold;
   text-transform: uppercase;
-  font-size: $mainFontSize - 2px;
+  font-size: rem($mainFontSize - 2px);
   line-height: rem(15);
   color: $dark-100;
+}
+
+input { //почему-то надо перезадавать фонт в инпуты
+	font-family: $mainFont;
 }

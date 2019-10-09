@@ -21,3 +21,6 @@
   ::-moz-placeholder          {@content}
   :-ms-input-placeholder      {@content}
 }
+@mixin duration($sec: $duration) {
+  transition-duration:$sec;
+}

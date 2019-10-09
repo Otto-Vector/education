@@ -9,7 +9,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PATHS = {
   src: path.join(__dirname, '../src'),
   dist: path.join(__dirname, '../dist'),
-  assets: 'assets/'
+  assets: 'assets/',
+  img: 'assets/img/'
 };
 
 // Pages const for HtmlWebpackPlugin
@@ -31,10 +32,16 @@ module.exports = {
     app: PATHS.src,
     // module: `${PATHS.src}/your-module.js`,
   },
+  resolve: {
+    alias: {
+//      '~': 'src',
+      '@images': path.resolve(__dirname, '../src/assets/img/')
+    }
+  },
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
     path: PATHS.dist,
-    //publicPath: '/'
+    publicPath: '/'
   },
   optimization: {
     splitChunks: {
@@ -58,6 +65,7 @@ module.exports = {
     }, {
       test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'file-loader',
+      exclude: '/src/assets/img/',
       options: {
         name: '[name].[ext]'
       }
@@ -66,8 +74,8 @@ module.exports = {
       loader: 'file-loader',
       exclude: '/src/assets/fonts/',
       options: {
-        name: '/assets/images/[name].[ext]',
-        context: ''
+        outputPath: `${PATHS.img}`,
+        name: '[name].[ext]'
       }
     }, { //обработчик sass/scss
       test: /\.(scss|sass)$/,
@@ -91,17 +99,12 @@ module.exports = {
     }
     ]
   },
-  resolve: {
-    alias: {
-      '~': 'src',
-    }
-  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: `${PATHS.assets}css/[name].[hash].css`,
     }),
     new CopyWebpackPlugin([
-      { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
+      { from: `${PATHS.src}/${PATHS.img}`, to: `${PATHS.img}` },
       //{ from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
       { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
       { from: `${PATHS.src}/static`, to: '' },

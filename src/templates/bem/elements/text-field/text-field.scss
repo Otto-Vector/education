@@ -1,22 +1,21 @@
-.text-field {}
+.text-field {
 
-.text-field__label {
-	display: flex;
-//	flex-wrap: wrap;
-//	flex-direction: row;
-}
+	&__label {
+		display: flex;
+	}
 
-.text-field__input {
-	border: 1px solid $dark-25;
-	border-radius: 4px;
-	font-family: $mainFont;
-	width: 320px;
-	height: 44px;
-	padding: 13px rem(15);
-	transition-duration: 0.5s;
-}
+	&__input {
+		border: 1px solid $dark-25
+			{radius: 4px}
+		background-image: url('~@images/5377691184.jpg');
+		width: 320px;
+		height: 44px;
+		padding: 13px rem(15);
+		@include duration();
 
-.text-field__input:focus {
-	border: 1px solid $dark-100;
-	color: $dark-100;
+		&:focus:hover {
+			color: $dark-75;
+			border: 1px solid $dark-50;
+		}
+	}
 }
