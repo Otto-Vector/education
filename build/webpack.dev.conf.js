@@ -14,6 +14,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       errors: true
     }
   },
+  output: {
+    publicPath: '/'
+  },
   plugins: [
     new webpack.SourceMapDevToolPlugin({
       filename: '[file].map'

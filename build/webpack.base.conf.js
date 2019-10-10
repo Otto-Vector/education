@@ -8,23 +8,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PATHS = {
   src: path.join(__dirname, '../src'),
   dist: path.join(__dirname, '../dist'),
-  assets: 'assets/',
-  img: 'assets/img/',
-  fonts: 'assets/fonts',
-  fontsPath: path.resolve(__dirname, '../src/assets/fonts/'),
-  imgPath: path.resolve(__dirname, '../src/assets/img/')
+  long: {
+    fonts: path.resolve(__dirname, '../src/assets/fonts/'),
+    images: path.resolve(__dirname, '../src/assets/img/'),
+  },
+  short: {
+    js: 'assets/js/',
+//    css: 'assets/css/',
+    images: 'assets/img/',
+    fonts: 'assets/fonts/',
+  },
 };
 
 
 // Pages const for HtmlWebpackPlugin
-//const PAGES_DIR = `${PATHS.src}/pug/pages/`;
 const PAGES_DIR = `${PATHS.src}/templates/pages/`;
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'));
 
-// const PAGES_DIR = PATHS.src;
-// const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.html'));
-
-
+////////////////////////////////////////////////////////////////
 module.exports = {
   // BASE config
   externals: {
@@ -37,14 +38,14 @@ module.exports = {
   resolve: {
     alias: {
 //      '~': 'src',
-      '@images': `${PATHS.imgPath}`,
-      '@fonts' : `${PATHS.fontsPath}`,
+      '@images': PATHS.long.images,
+      '@fonts' : PATHS.long.fonts,
     }
   },
   output: {
-    filename: `${PATHS.assets}js/[name].[hash].js`,
+    filename: `${PATHS.short.js}[name].[hash].js`,
     path: PATHS.dist,
-    publicPath: '/' //для dev режима?
+//    publicPath: '/' //для dev режима?
   },
   optimization: {
     splitChunks: {
@@ -69,14 +70,14 @@ module.exports = {
       test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'file-loader',
       options: {
-        outputPath: PATHS.fonts,
+        outputPath: PATHS.short.fonts,
         name: '[name].[ext]'
       }
     }, {
        test: /\.(png|jpg|gif)$/,
       loader: 'file-loader',
       options: {
-        outputPath: PATHS.img,
+        outputPath: PATHS.short.images,
         name: '[name].[ext]'
       }
     }, { //обработчик sass/scss
@@ -89,10 +90,10 @@ module.exports = {
           options: { sourceMap: true }
         }, {
           loader: 'postcss-loader',
-          options: { sourceMap: true, config: { path: `./postcss.config.js` } }
+          options: { sourceMap: true, config: { path: `./postcss.config.js` }, }
         }, {
           loader: 'sass-loader',
-          options: { sourceMap: true }
+          options: { sourceMap: true, }
         }
       ]
     }, { //обработка pug файлов
@@ -103,18 +104,16 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}css/[name].[hash].css`,
+//      filename: `${PATHS.short.css}[name].[hash].css`,
+      filename: `[name].[hash].css`, //css ложим в корень dist, потому что непонятно как вписать относительные пути для шрифтов и картинок из цсс
     }),
     new CopyWebpackPlugin([
-//      { from: `${PATHS.src}/${PATHS.img}`, to: `${PATHS.img}` },
-//      { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
-//     { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
+//      { from: `${PATHS.src}/${PATHS.short.images}`, to: `${PATHS..short.images}` },
+//     { from: `${PATHS.src}/${PATHS.short.fonts}`, to: `${PATHS.short.fonts` },
 //     { from: `${PATHS.src}/static`, to: '' },
     ]),
 
     // Automatic creation any html pages (Don't forget to RERUN dev server)
-    // see more: https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files
-    // best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
     ...PAGES.map(page => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
       filename: `./${page.replace(/\.pug/,'.html')}`
