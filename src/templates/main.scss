@@ -3,31 +3,31 @@
 @import "utils/fonts";
 @import "utils/vars";
 @import "utils/mixins";
-
+//    background-image: url('~@images/5377691184.jpg');
 
 html { //уменьшение размера текста, в зависимости от ширины экрана
-  line-height: $mainLineHeight;
-  font-size: $mainFontSize;
-  color: $mainFontColor;
-  height: 100%;
-  @media screen and (max-width: $desktopWidth) {
-    font-size: $mainFontSize;
-  }
-  @media screen and (max-width: $tableWidth) {
-    font-size: $mainFontSize - 1px;
-  }
-  @media screen and (max-width: $phoneWidth) {
-    font-size: $mainFontSize - 2px;
-  }
+	line-height: $mainLineHeight;
+	font-size: $mainFontSize;
+	color: $mainFontColor;
+	height: 100%;
+	@media screen and (max-width: $desktopWidth) {
+		font-size: $mainFontSize;
+	}
+	@media screen and (max-width: $tableWidth) {
+		font-size: $mainFontSize - 1px;
+	}
+	@media screen and (max-width: $phoneWidth) {
+		font-size: $mainFontSize - 2px;
+	}
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: $mainFont;
+	margin: 0;
+	padding: 0;
+	font-family: $mainFont;
 //  font-weight: $mainFontWeight;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 *, *:before, *:after { box-sizing: border-box; }
@@ -35,63 +35,100 @@ body {
 a { text-decoration: none; }
 
 ul, li {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
 }
+
+//////////////////////////////////////////////////
+.for-icons:before {
+//  position: absolute;
+	content: 'vector';
+	display: inline-block;
+	font-family: "Material Icons";
+	color: $dark-75;
+	left: 0;
+//  top: 90px;
+	font-size: 24px;
+}
+// .material-icons {
+//   font-family: 'Material Icons';
+//   font-weight: normal;
+//   font-style: normal;
+//   font-size: 24px;  /* Preferred icon size */
+//   display: inline-block;
+//   line-height: 1;
+//   text-transform: none;
+//   letter-spacing: normal;
+//   word-wrap: normal;
+//   white-space: nowrap;
+//   direction: ltr;
+
+//   /* Support for all WebKit browsers. */
+//   -webkit-font-smoothing: antialiased;
+//   /* Support for Safari and Chrome. */
+//   text-rendering: optimizeLegibility;
+
+//   /* Support for Firefox. */
+//   -moz-osx-font-smoothing: grayscale;
+
+//   /* Support for IE. */
+//   font-feature-settings: 'liga';
+// }
+//////////////////////////////////////////////////
 
 //каждый блок на сайте всегда правильно делать через это
 section, .section {
-  position: relative;
-  padding: rem(40) 0; //использование функции rem() значение которой зависит от размера шрифта
-  // padding: 40px 0;
-  // @media screen and (max-width: $desktopWidth) {
-  //   padding: 36px 0;
-  // }
-  // @media screen and (max-width: $tableWidth) {
-  //   padding: 28px 0;
-  // }
-  // @media screen and (max-width: $phoneWidth) {
-  //   padding: 20px 0;
-  // }
+	position: relative;
+	padding: rem(40) 0; //использование функции rem() значение которой зависит от размера шрифта
+	// padding: 40px 0;
+	// @media screen and (max-width: $desktopWidth) {
+	//   padding: 36px 0;
+	// }
+	// @media screen and (max-width: $tableWidth) {
+	//   padding: 28px 0;
+	// }
+	// @media screen and (max-width: $phoneWidth) {
+	//   padding: 20px 0;
+	// }
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	min-height: 100vh;
 }
 
 .content-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 .item-title {
-  color: $dark-50;
+	color: $dark-50;
 }
 
 .container {
-  width: 100%;
-  flex: 0 0 auto;
-  position: relative;
-  margin: 0 auto;
-  max-width: $maxDesktopWidth;
-  //меняет размеры основного экрана контента
-  @media screen and (max-width: $desktopWidth) {
-    max-width: $smDesktopWidth;
-  }
-  @media screen and (max-width: $smDesktopWidth) {
-    max-width: $tableWidth;
-  }
-  @media screen and (max-width: $tableWidth) {
-    max-width: $phoneWidth;
-  }
-  @media screen and (max-width: $phoneWidth) {
-    max-width: $smPhoneWidth;
-  }
+	width: 100%;
+	flex: 0 0 auto;
+	position: relative;
+	margin: 0 auto;
+	max-width: $maxDesktopWidth;
+	//меняет размеры основного экрана контента
+	@media screen and (max-width: $desktopWidth) {
+		max-width: $smDesktopWidth;
+	}
+	@media screen and (max-width: $smDesktopWidth) {
+		max-width: $tableWidth;
+	}
+	@media screen and (max-width: $tableWidth) {
+		max-width: $phoneWidth;
+	}
+	@media screen and (max-width: $phoneWidth) {
+		max-width: $smPhoneWidth;
+	}
 }
 
 // Modules//////////////////////////////

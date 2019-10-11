@@ -2,9 +2,9 @@
 
 mixin text-field(data)
 	.text-field
-		label.text-field__label.h3-style(for=!(data.id)?data.name:data.id)=data.label
+		label.text-field__label(for=!(data.id)?data.name:data.id)=data.label
 		input.text-field__input(
-		 type='text',
+		 type="text",
 		 name=!(data.name)?data.id:data.name,
 		 id=!(data.id)?data.name:data.id
 		 value=data.value

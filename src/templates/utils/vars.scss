@@ -9,12 +9,14 @@ $dark-50                 : rgba(#1f2041,.5);
 $dark-25                 : rgba(#1f2041,.25);
 $dark-5                  : rgba(#1f2041,.05);
 $purple-color            : #bc9cff;
+$purple-color2           : #8BA4F9;
 $green-color             : #6fcf97;
 //animation
 $duration                : .7s; // время анимаций
 // Size
 $mainFontColor           : $dark-75;
 $mainFontSize            : 14px;
+$materialFontSize        : 24px;
 //$mainFontWeight          : normal;
 $mainLineHeight          : 24px;
 
@@ -26,25 +28,25 @@ $phoneWidth              : 480px;
 $smPhoneWidth            : 320px;
 
 //////////////ЗАГОЛОВКИ////////////////////
-h1, h2, h3 {
+.h1-style, .h2-style, .h3-style {
   margin: 0;
 }
 
-h1, h2 {
+.h1-style, .h2-style {
   font-family: $headerFont;
 }
 
-h1 {
+.h1-style {
   font-size: rem(24);
   line-height: rem(30);
 }
 
-h2 {
+.h2-style {
   font-size: rem(19);
   line-height: rem(24);
 }
 
-h3, label {
+.h3-style {
   font-weight: bold;
   text-transform: uppercase;
   font-size: rem($mainFontSize - 2px);

@@ -21,6 +21,10 @@
   ::-moz-placeholder          {@content}
   :-ms-input-placeholder      {@content}
 }
+
+//миксин для плавности
 @mixin duration($sec: $duration) {
   transition-duration:$sec;
 }
+
+//
