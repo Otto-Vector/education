@@ -1,6 +1,8 @@
-import $ from 'jquery'
+//import $ from 'jquery'
 // JS
 import './js/'
+import './templates/main.js'
+
 
 // SCSS
 import './templates/main.scss'

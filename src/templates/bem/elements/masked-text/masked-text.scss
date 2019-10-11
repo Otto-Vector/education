@@ -1,4 +1,5 @@
-.text-field {
+.masked-text {
+	font-weight: 58px;
 
 	&__label { 
 		display: flex; //для того чтобы он был сверху над инпутом
@@ -24,6 +25,7 @@
 		&::placeholder { //поставил, потому что менялся цвет в настройках браузера
 			color: $dark-25;
 			opacity: 1;
+
 		}
 	}
 }

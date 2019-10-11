@@ -1,0 +1,1 @@
+import './bem/main_elements.js';

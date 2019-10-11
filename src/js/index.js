@@ -3,7 +3,8 @@
 
 //import {bind, person1, person2, logPerson} from './bind.js'
 import * as binder from './bind.js'
-
+// import $ from 'jquery'
+// $('.h3-style').css('color','red');
 binder.bind(binder.person1, binder.logPerson)()
 
 // function logPerson() {
