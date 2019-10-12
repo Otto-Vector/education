@@ -6,24 +6,24 @@ block variables
 
 doctype html
 html(lang='en')
-	head
-		meta(charset='utf-8')
-		title #{title}
-		meta(name="description", content=description)
-		link(rel="shortcut icon" href=require('../../assets/img/favicon.png') type="image/x-icon")
+  head
+    meta(charset='utf-8')
+    title #{title}
+    meta(name="description", content=description)
+    link(rel="shortcut icon" href=require('../../assets/img/favicon.png') type="image/x-icon")
 
-		block head
+    block head
 
-	body(class=pageClass)
-		.wrapper
-			//- include ../includes/modules/header
-			block header
-			
-			.content-wrapper
+  body(class=pageClass)
+    .wrapper
+      //- include ../includes/modules/header
+      block header
 
-				block content
+      .content-wrapper
 
-			//- include ../includes/modules/footer
-			block footer
+        block content
 
-		block script
+      //- include ../includes/modules/footer
+      block footer
+
+    block script

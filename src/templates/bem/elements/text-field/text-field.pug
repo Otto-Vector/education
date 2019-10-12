@@ -1,11 +1,12 @@
-//- +text-field({label: "Label", placeholder: "Placeholder", id: "Id", name: "Name", type:"type", value: "Value"})
+//- +text-field({label: "Label", placeholder: "Placeholder", id: "Id", name: "Name", value: "Value"})
 
 mixin text-field(data)
-	.text-field
-		label.text-field__label.h3-style(for=!(data.id)?data.name:data.id)=data.label
-		input.text-field__input(
-		 type='text',
-		 name=!(data.name)?data.id:data.name,
-		 id=!(data.id)?data.name:data.id
-		 value=data.value
-		 placeholder=data.placeholder)
+  .text-field
+
+    label.text-field__label.h3-style=data.label
+
+      input.text-field__input(
+      type="text",
+      name=!(data.name)?"text":data.name,
+      value=data.value,
+      placeholder=data.placeholder)

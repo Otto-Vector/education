@@ -6,28 +6,28 @@
 //    background-image: url('~@images/5377691184.jpg');
 
 html { //уменьшение размера текста, в зависимости от ширины экрана
-	line-height: $mainLineHeight;
-	font-size: $mainFontSize;
-	color: $mainFontColor;
-	height: 100%;
-	@media screen and (max-width: $desktopWidth) {
-		font-size: $mainFontSize;
-	}
-	@media screen and (max-width: $tableWidth) {
-		font-size: $mainFontSize - 1px;
-	}
-	@media screen and (max-width: $phoneWidth) {
-		font-size: $mainFontSize - 2px;
-	}
+  line-height: $mainLineHeight;
+  font-size: $mainFontSize;
+  color: $mainFontColor;
+  height: 100%;
+  @media screen and (max-width: $desktopWidth) {
+    font-size: $mainFontSize;
+  }
+  @media screen and (max-width: $tableWidth) {
+    font-size: $mainFontSize - 1px;
+  }
+  @media screen and (max-width: $phoneWidth) {
+    font-size: $mainFontSize - 2px;
+  }
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	font-family: $mainFont;
+  margin: 0;
+  padding: 0;
+  font-family: $mainFont;
 //  font-weight: $mainFontWeight;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *, *:before, *:after { box-sizing: border-box; }
@@ -35,21 +35,21 @@ body {
 a { text-decoration: none; }
 
 ul, li {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 //////////////////////////////////////////////////
 .for-icons:before {
 //  position: absolute;
-	content: 'vector';
-	display: inline-block;
-	font-family: "Material Icons";
-	color: $dark-75;
-	left: 0;
+  content: 'vector';
+  display: inline-block;
+  font-family: "Material Icons";
+  color: $dark-75;
+  left: 0;
 //  top: 90px;
-	font-size: 24px;
+  font-size: 24px;
 }
 // .material-icons {
 //   font-family: 'Material Icons';
@@ -79,58 +79,81 @@ ul, li {
 
 //каждый блок на сайте всегда правильно делать через это
 section, .section {
-	position: relative;
-	padding: rem(40) 0; //использование функции rem() значение которой зависит от размера шрифта
-	// padding: 40px 0;
-	// @media screen and (max-width: $desktopWidth) {
-	//   padding: 36px 0;
-	// }
-	// @media screen and (max-width: $tableWidth) {
-	//   padding: 28px 0;
-	// }
-	// @media screen and (max-width: $phoneWidth) {
-	//   padding: 20px 0;
-	// }
+  position: relative;
+  padding: rem(40) 0; //использование функции rem() значение которой зависит от размера шрифта
+  // padding: 40px 0;
+  // @media screen and (max-width: $desktopWidth) {
+  //   padding: 36px 0;
+  // }
+  // @media screen and (max-width: $tableWidth) {
+  //   padding: 28px 0;
+  // }
+  // @media screen and (max-width: $phoneWidth) {
+  //   padding: 20px 0;
+  // }
 }
 
 .wrapper {
-	display: flex;
-	flex-direction: column;
-	margin: 0 auto;
-	min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: 100vh;
 }
 
 .content-wrapper {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
-
-.item-title {
-	color: $dark-50;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
-	width: 100%;
-	flex: 0 0 auto;
-	position: relative;
-	margin: 0 auto;
-	max-width: $maxDesktopWidth;
-	//меняет размеры основного экрана контента
-	@media screen and (max-width: $desktopWidth) {
-		max-width: $smDesktopWidth;
-	}
-	@media screen and (max-width: $smDesktopWidth) {
-		max-width: $tableWidth;
-	}
-	@media screen and (max-width: $tableWidth) {
-		max-width: $phoneWidth;
-	}
-	@media screen and (max-width: $phoneWidth) {
-		max-width: $smPhoneWidth;
-	}
+  width: 100%;
+  flex: 0 0 auto;
+  position: relative;
+  margin: 0 auto;
+  max-width: $maxDesktopWidth;
+  //меняет размеры основного экрана контента
+  @media screen and (max-width: $desktopWidth) {
+    max-width: $smDesktopWidth;
+  }
+  @media screen and (max-width: $smDesktopWidth) {
+    max-width: $tableWidth;
+  }
+  @media screen and (max-width: $tableWidth) {
+    max-width: $phoneWidth;
+  }
+  @media screen and (max-width: $phoneWidth) {
+    max-width: $smPhoneWidth;
+  }
 }
 
+//////////////ЗАГОЛОВКИ////////////////////
+.h1-style, .h2-style, .h3-style {
+  margin: 0;
+}
+
+.h1-style, .h2-style {
+  font-family: $headerFont;
+}
+
+.h1-style {
+  font-size: rem(24);
+  line-height: rem(30);
+}
+
+.h2-style {
+  font-size: rem(19);
+  line-height: rem(24);
+}
+
+.h3-style {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: rem($mainFontSize - 2px);
+  line-height: rem(15);
+  color: $dark-100;
+}
+/////////////////////////////////////////////////
 // Modules//////////////////////////////
 @import "bem/main_elements";
 @import "bem/main_blocks";

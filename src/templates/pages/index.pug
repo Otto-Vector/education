@@ -4,22 +4,35 @@ extends ../main
 //-   link(href="assets/css/minimum.css" rel="stylesheet")
 
 block variables
-	- var title = 'Elements';
-	- var description = 'Elements page';
-	- var pageClass = 'elem-page';
-	//- - var imgPath = 'assets/images/';
+  - var title = 'Elements';
+  - var description = 'Elements page';
+  - var pageClass = 'elem-page';
+
 block content
-	section
-		.container
+  section
+    .container
 
-			+logo
-			+text-field({label: "text-field", placeholder: "Email", name: "email"})
-			+text-field({label: "text-field", value: "This is pretty awesome"})
-			+masked-text({label: "masked-text", name: "date"})
-			span Можно пригласить гостей
-			h1 English
-			p.for-icons
+      +logo
+      +text-field({
+        label: "text field",
+        placeholder: "Email",
+        name: "email"
+      })
+
+      +text-field({
+        label: "text field",
+        value: "This is pretty awesome"
+      })
+
+      +masked-text({
+        label: "masked text field",
+        name: "date"
+      })
+
+      span Можно пригласить гостей
+      .h1-style English
+      p.for-icons
 
 
 
-			//- img(src=require('@images/5377691184.jpg') alt="logo")
+      //- img(src=require('@images/5377691184.jpg') alt="logo")
