@@ -16,10 +16,11 @@
 }
 //позволяет передавать все разновидности placeholder()
 @mixin placeholder {
-  ::-webkit-input-placeholder {@content}
-  :-moz-placeholder           {@content}
-  ::-moz-placeholder          {@content}
-  :-ms-input-placeholder      {@content}
+  &::placeholder {@content; opacity: 1;}
+  &::-webkit-input-placeholder {@content; opacity: 1;}
+  &:-moz-placeholder           {@content; opacity: 1;}
+  &::-moz-placeholder          {@content; opacity: 1;}
+  &:-ms-input-placeholder      {@content; opacity: 1;}
 }
 
 //миксин для плавности
