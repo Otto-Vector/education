@@ -13,25 +13,38 @@ block content
     .container
 
       +logo
-      +text-field({
-        label: "text field",
+      +input-field({
+        title: "text field",
         placeholder: "Email",
-        name: "email"
+        name: "email",
+        type: "email"
+      })
+      +input-field({title: "Поле по умолчанию"})
+      +input-field({
+      title: "Со стрелочкой",
+      type: "dropdown",
+      value: "Сколько гостей",
+      placeholder: "Тут вам не там"
+      })(readonly=true)
+      +input-field({
+        title: "text field 2 ",
+        placeholder: "Пароль",
+        type: "password"
       })
 
-      +text-field({
-        label: "text field",
-        value: "This is pretty awesome"
+      +input-field({
+        title: "text field",
+        value: "This is pretty awes ome! Сколько гостей"
       })
 
-      +masked-text({
+      +input-field({
         label: "masked text field",
-        name: "date"
+        type: "date"
       })
 
-      span Можно пригласить гостей
+      span.toxin-h1-style Можно пригласить гостей
       .h1-style English
-      p xText-totot o
+      p.for-icons xText-totot o
       label Для проверки "label"
 
 

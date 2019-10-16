@@ -1,1 +1,1 @@
-import './bem/main_elements.js';
+import './bem/blocks-library/blocks-library.js';

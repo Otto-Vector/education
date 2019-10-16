@@ -1,0 +1,55 @@
+
+mixin input-field(data)
+  //- без параметров работает как type='text' без заголовка
+  //- Принимает:
+  //-   data {object}
+  //-     title: ''           {string} - текст с названием (выводится над полем в теге label)//при пустом поле будет input без заголовка
+  //-     type: ''            {string} - модификаторы блока input ('email','date','password', 'dropdown'), //при пустом поле и при date значение "text" (обрабатывается в js этого миксина)
+  //-     name: ''            {string} - имя блока для Form (при отстутсвии принимает значение type)
+  //-     placeholder:        {string} - текст, показываемый, пока ничего не выбрано (аналогично html)
+  //-     value:              {string} - редактируемый текст в поле (аналогично html)
+
+  //- Вызов:
+      +input-field({
+        title: 'Название поля',
+        type: 
+        name: '',
+        placeholder: '',
+        value: ''
+      })
+
+  //- ФУНКЦИОНАЛЬНЫЙ БЛОК -//
+  -
+    var default_type = 'text';
+    var input_class = '';
+    var icon = '';
+
+    if (typeof(data) == 'undefined') var data = {type: `${default_type}`} ;
+
+    //проверка на значение data
+    if (typeof(data.type) !== 'undefined' && data.type !== '') {
+      if (data.type == "date") {
+      add_class+= " input-field__input_masked-data";
+      data.placeholder = "ДД.ММ.ГГГГ";
+      data.type = default_type;
+      }
+      if (data.type == "dropdown") {
+        data.type = default_type;
+        icon='expand_more';
+        input_class+= 'cursor-pointer';
+      }
+    }
+    // if (typeof(data.type) !== 'undefined') data.type = default_type;
+
+
+  //- БЛОК ВЫВОДА ПОЛЕЙ -//
+
+  .input-field(class= icon)
+
+    label.input-field__label.toxin-h3-style=data.title
+      input.input-field__input.input-field__input_arrow-forward(
+      class = input_class,
+      type  = !(data.type)?default_type:data.type
+      name  = !(data.name)?data.type:data.name,
+      value = data.value,
+      placeholder = data.placeholder)&attributes(attributes)

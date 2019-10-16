@@ -1,6 +1,5 @@
 include utils/mixins
-include bem/main_elements
-include bem/main_blocks
+include bem/blocks-library/blocks-library
 
 block variables
 
@@ -10,7 +9,6 @@ html(lang="en")
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1, width=device-width")
-    meta( name="format-detection" content="telephone=no")
     title #{pageTitle}
     meta(name="description", content=description)
     link(rel="shortcut icon" href=require('../../assets/img/favicon.png') type="image/x-icon")

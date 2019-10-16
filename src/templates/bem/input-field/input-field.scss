@@ -1,0 +1,54 @@
+.input-field {
+  position: relative;
+  width: rem(320);
+
+  &__label {
+  }
+
+  &__input {
+    font-family: $mainFont; //переназначаем шрифт, потому что input находится в label и наследует
+    // text-transform: none;
+    box-sizing: border-box;
+    background: $input-background;
+    border: solid {
+      color: $dark-25;
+      radius: 4px;
+      width: 1px;
+      }
+    padding: rem(13) rem(35) rem(13) rem(15);
+    width: 100%;
+    @include duration();
+
+    &:focus, &:hover {
+      border-color: $dark-50;
+      color: $dark-75;
+    }
+
+    &:valid { //поставил, потому что менялся цвет в настройках браузера при разфокусировке
+      color: $dark-100;
+    }
+
+    &:invalid {
+      color: $invalid-color;
+    }
+
+    @include placeholder {
+      color: $dark-25;
+    }
+  }
+}
+.expand_more:after {
+  position: absolute;
+  content: 'expand_more';
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Material Icons";
+  color: $dark-75;
+  right: rem(10);
+  bottom: rem(9);
+  font-size: $materialFontSize;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+

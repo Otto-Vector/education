@@ -10,6 +10,7 @@ html { //уменьшение размера текста, в зависимос
   font-size: $mainFontSize;
   color: $mainFontColor;
   height: 100%;
+  background: $purple-color2;
   @media screen and (max-width: $desktopWidth) {
     font-size: $mainFontSize;
   }
@@ -30,25 +31,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-*, *:before, *:after { box-sizing: border-box; }
-
 a { text-decoration: none; }
 
-ul, li {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+// ul, li {
+//   margin: 0;
+//   padding: 0;
+//   list-style-type: none;
+// }
+.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
-
-//////////////////////////////////////////////////
-.for-icons:before {
-//  position: absolute;
-  content: 'vector';
-  display: inline-block;
+////////////////ИКОНОЧНЫЙ ШРИФТ//////////////////////////////
+.for-icons:after {
+  // position: absolute;
+  content: 'arrow_forward';
+//  display: inline-block;
   font-family: "Material Icons";
   color: $dark-75;
-  left: 0;
-//  top: 90px;
+  // left: 10px;
+  // top: 10px;
   font-size: 24px;
 }
 // .material-icons {
@@ -110,50 +114,23 @@ section, .section {
   width: 100%;
   flex: 0 0 auto;
   position: relative;
-  margin: 0 auto;
+  margin: 0 50px;
   max-width: $maxDesktopWidth;
   //меняет размеры основного экрана контента
-  @media screen and (max-width: $desktopWidth) {
-    max-width: $smDesktopWidth;
-  }
-  @media screen and (max-width: $smDesktopWidth) {
-    max-width: $tableWidth;
-  }
-  @media screen and (max-width: $tableWidth) {
-    max-width: $phoneWidth;
-  }
-  @media screen and (max-width: $phoneWidth) {
-    max-width: $smPhoneWidth;
-  }
+  // @media screen and (max-width: $desktopWidth) {
+  //   max-width: $smDesktopWidth;
+  // }
+  // @media screen and (max-width: $smDesktopWidth) {
+  //   max-width: $tableWidth;
+  // }
+  // @media screen and (max-width: $tableWidth) {
+  //   max-width: $phoneWidth;
+  // }
+  // @media screen and (max-width: $phoneWidth) {
+  //   max-width: $smPhoneWidth;
+  // }
 }
 
-//////////////ЗАГОЛОВКИ////////////////////
-.h1-style, .h2-style, .h3-style {
-  margin: 0;
-}
-
-.h1-style, .h2-style {
-  font-family: $headerFont;
-}
-
-.h1-style {
-  font-size: rem(24);
-  line-height: rem(30);
-}
-
-.h2-style {
-  font-size: rem(19);
-  line-height: rem(24);
-}
-
-.h3-style {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: rem($mainFontSize - 2px);
-  line-height: rem(15);
-  color: $dark-100;
-}
 /////////////////////////////////////////////////
-// Modules//////////////////////////////
-@import "bem/main_elements";
-@import "bem/main_blocks";
+////////// Modules//////////////////////////////
+@import 'bem/blocks-library/blocks-library';

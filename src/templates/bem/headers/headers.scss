@@ -1,0 +1,28 @@
+//////////////ЗАГОЛОВКИ////////////////////
+.toxin {
+  &-h1-style, &-h2-style, &-h3-style {
+    margin: 0;
+  }
+
+  &-h1-style, &-h2-style {
+    font-family: $headerFont;
+  }
+
+  &-h1-style {
+    font-size: rem(24);
+    line-height: rem(30);
+  }
+
+  &-h2-style {
+    font-size: rem(19);
+    line-height: rem(24);
+  }
+
+  &-h3-style {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: rem($mainFontSize - 2px);
+    line-height: rem(15);
+    color: $dark-100;
+  }
+}
