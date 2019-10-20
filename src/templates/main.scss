@@ -10,7 +10,6 @@ html { //уменьшение размера текста, в зависимос
   font-size: $mainFontSize;
   color: $mainFontColor;
   height: 100%;
-  background: $purple-color2;
   @media screen and (max-width: $desktopWidth) {
     font-size: $mainFontSize;
   }
@@ -23,6 +22,7 @@ html { //уменьшение размера текста, в зависимос
 }
 
 body {
+  background: $toxin-body-background;
   margin: 0;
   padding: 0;
   font-family: $mainFont;

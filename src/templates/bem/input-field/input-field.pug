@@ -1,8 +1,8 @@
 
-mixin input-field(data)
+mixin input-field(params)
   //- без параметров работает как type='text' без заголовка
   //- Принимает:
-  //-   data {object}
+  //-   params {object}
   //-     title: ''           {string} - текст с названием (выводится над полем в теге label)//при пустом поле будет input без заголовка
   //-     type: ''            {string} - модификаторы блока input ('email','date','password', 'dropdown'), //при пустом поле и при date значение "text" (обрабатывается в js этого миксина)
   //-     name: ''            {string} - имя блока для Form (при отстутсвии принимает значение type)
@@ -20,36 +20,42 @@ mixin input-field(data)
 
   //- ФУНКЦИОНАЛЬНЫЙ БЛОК -//
   -
-    var default_type = 'text';
-    var input_class = '';
-    var icon = '';
+    let default_type = 'text',
+        input_class = '',
+        block_name = 'input-field';
 
-    if (typeof(data) == 'undefined') var data = {type: `${default_type}`} ;
+    //Проверка на миксин без параметров так как 
+    //при пустом params, не деструктурируются значения по умолчанию
+    if (typeof(params) == 'undefined') {
+    var params = {placeholder: 'empty params in "input-field"'};
+      }
 
-    //проверка на значение data
-    if (typeof(data.type) !== 'undefined' && data.type !== '') {
-      if (data.type == "date") {
-      add_class+= " input-field__input_masked-data";
-      data.placeholder = "ДД.ММ.ГГГГ";
-      data.type = default_type;
+    //деструктуризация params в переменные и задание им значений по умолчанию
+    let {title = '',
+      type = default_type,
+      name = type,
+      placeholder = '',
+      value = ''} = params;
+
+    //проверка на значение date
+    if (type == 'date') {
+      input_class+= ' js-input_masked-date';
+      placeholder = 'ДД.ММ.ГГГГ';
+      type = default_type;
       }
-      if (data.type == "dropdown") {
-        data.type = default_type;
-        icon='expand_more';
-        input_class+= 'cursor-pointer';
-      }
+    else {
+    //проверка на некорректный ввод type (должен идти после проверки на значение "date")
+      if (!['text', 'email', 'password'].includes(type)) {type = default_type;}
     }
-    // if (typeof(data.type) !== 'undefined') data.type = default_type;
 
+   //- БЛОК ВЫВОДА ПОЛЕЙ -//
 
-  //- БЛОК ВЫВОДА ПОЛЕЙ -//
-
-  .input-field(class= icon)
-
-    label.input-field__label.toxin-h3-style=data.title
-      input.input-field__input.input-field__input_arrow-forward(
-      class = input_class,
-      type  = !(data.type)?default_type:data.type
-      name  = !(data.name)?data.type:data.name,
-      value = data.value,
-      placeholder = data.placeholder)&attributes(attributes)
+  div(class = block_name)&attributes(attributes)
+    +label({text: title, mods: 'h3-style', tag: 'label'})(class= block_name+'__label')
+      input.input-field__input(
+        class = input_class,
+        type  = type,
+        name  = name,
+        value = value,
+        placeholder = placeholder)
+    block

@@ -13,39 +13,40 @@ block content
     .container
 
       +logo
+      +label
+      +label({text: 'title', mods: 'h3-style', tag: 'label'})
       +input-field({
         title: "text field",
         placeholder: "Email",
-        name: "email",
         type: "email"
       })
-      +input-field({title: "Поле по умолчанию"})
-      +input-field({
-      title: "Со стрелочкой",
-      type: "dropdown",
-      value: "Сколько гостей",
-      placeholder: "Тут вам не там"
-      })(readonly=true)
-      +input-field({
-        title: "text field 2 ",
-        placeholder: "Пароль",
-        type: "password"
-      })
+      +input-field({type: "lll", placeholder: "another type"})
+      +input-field
+      +dropdown
+      //- +input-field({
+      //-   title: "text field",
+      //-   value: "This is pretty awesome!"
+      //- })
+      //- +input-field({
+      //-   title: "Со стрелочкой",
+      //-   type: "dropdown",
+      //-   value: "Сколько гостей",
+      //-   placeholder: "Тут вам не там"
+      //-   })(readonly=true)
+      //- +input-field({
+      //-   title: "text field 2 ",
+      //-   placeholder: "Пароль",
+      //-   type: "password"
+      //- })
+      //- +input-field({
+      //-   title: "masked text field",
+      //-   type: "date"
+      //- })
 
-      +input-field({
-        title: "text field",
-        value: "This is pretty awes ome! Сколько гостей"
-      })
-
-      +input-field({
-        label: "masked text field",
-        type: "date"
-      })
-
-      span.toxin-h1-style Можно пригласить гостей
-      .h1-style English
-      p.for-icons xText-totot o
-      label Для проверки "label"
+      //- span.label_h1-style Можно пригласить гостей
+      //- .h1-style English
+      //- p.for-icons xText-totot o
+      //- label Для проверки "label"
 
 
 

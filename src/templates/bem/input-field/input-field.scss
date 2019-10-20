@@ -8,6 +8,7 @@
   &__input {
     font-family: $mainFont; //переназначаем шрифт, потому что input находится в label и наследует
     // text-transform: none;
+    outline: none; //чтобы input не подсвечивался 
     box-sizing: border-box;
     background: $input-background;
     border: solid {
@@ -30,6 +31,9 @@
 
     &:invalid {
       color: $invalid-color;
+    }
+
+    &:active {
     }
 
     @include placeholder {
