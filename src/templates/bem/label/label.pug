@@ -5,27 +5,33 @@ mixin label(params)
   //- Принимает: {object}
   //-   text:  {string} - текст кнопки
   //-   mods:  {string} - список модификаторов
-  //-   tag:   {string} - тег (если не span)
+  //-   tag:   {string} - тег
   //- Вызов:
         +label('Лейбл')
         +label('Лейбл', 'danger', 'div')
   -
     // список модификаторов
-    var allMods = '';
+    let block_name = 'label',
+        main_class = block_name;
+
     //Проверка на миксин без параметров так как 
     //при пустом params, не деструктурируются значения по умолчанию
     if (typeof(params) == 'undefined') {
-    var params = {text: 'empty params in "label"'};
+    var params = {text: 'empty params in ='+block_name+'='};
       }
     //деструктуризация params в переменные и задание им значений по умолчанию
-    let {text='', mods='h3-style', tag= 'h3'} = params;
+    let {
+      text = '',
+      mods = 'h3-style',
+      tag  = 'h3'
+         } = params;
 
     if(mods !== '') {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' label_' + modsList[i].trim();
+        main_class += ' ' + block_name + '_' + modsList[i].trim();
       }
     }
 
-  #{tag}.label(class=allMods)&attributes(attributes)!= text
+  #{tag}(class=main_class)&attributes(attributes)!= text
     block
