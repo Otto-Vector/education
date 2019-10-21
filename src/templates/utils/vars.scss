@@ -14,8 +14,9 @@ $green-color             : #6fcf97;
 $invalid-color           : #f00; //цвет для неправильно введенного значения
 $input-background        : rgba(255,255,255,0.25);
 $toxin-body-background   : inherit;
+$gradient                : linear-gradient(180deg, $purple-color 0%, $purple-color2 100%);
 //animation
-$duration                : .7s; // время анимаций
+$duration                : .6s; // время анимаций
 
 // Size
 $mainFontColor           : $dark-75;

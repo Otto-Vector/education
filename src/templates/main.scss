@@ -84,7 +84,7 @@ a { text-decoration: none; }
 //каждый блок на сайте всегда правильно делать через это
 section, .section {
   position: relative;
-  padding: rem(40) 0; //использование функции rem() значение которой зависит от размера шрифта
+  padding: rem(10) 0; //использование функции rem() значение которой зависит от размера шрифта
   // padding: 40px 0;
   // @media screen and (max-width: $desktopWidth) {
   //   padding: 36px 0;

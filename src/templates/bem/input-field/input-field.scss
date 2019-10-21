@@ -14,15 +14,27 @@
   }
 
   &_dropdown:after {
-  display: inline-block;
-  position: absolute;
-  content: 'expand_more';
-  cursor: pointer;
-  color: $dark-75;
-  font-size: $materialFontSize;
-  font-family: "Material Icons";
-  right: rem(10);
-  bottom: rem(9);
+    position: absolute;
+    font-size: $materialFontSize;
+    font-family: "Material Icons";
+    cursor: pointer;
+    content: 'expand_more';
+    color: $dark-75;
+    right: rem(10);
+    bottom: rem(9);
+  }
+
+  &_subscribe:after {
+    position: absolute;
+    font-size: $materialFontSize;
+    font-family: "Material Icons";
+    cursor: pointer;
+    content: 'arrow_forward';
+    color: transparent;
+    background: $gradient;
+    background-clip: text;
+    right: rem(10);
+    bottom: rem(9);
   }
 
   &__label {
@@ -41,6 +53,8 @@
       }
     padding: rem(13) rem(35) rem(13) rem(15);
     width: 100%;
+
+    transition-property: border;
     @include duration();
 
     &:focus, &:hover {
@@ -49,7 +63,7 @@
     }
 
     &:valid { //поставил, потому что менялся цвет в настройках браузера при разфокусировке
-      color: $dark-100;
+      color: $dark-75;
     }
 
     &:invalid {

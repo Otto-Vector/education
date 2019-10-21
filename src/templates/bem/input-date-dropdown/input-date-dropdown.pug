@@ -1,10 +1,10 @@
 //- Все примеси в этом файле должны начинаться c имени блока (label)
 
-mixin label(params)
+mixin input-date-dropdown(params)
 
   //- Принимает: {object}
-  //-   text:  {string} - текст заголовка
-  //-   mods:  {string} - список модификаторов ((h1||h2||h3)-style)
+  //-   title_1:  {string} - текст первого заголовка
+  //-   title_2:  {string} - текст второго заголовка
   //-   tag:   {string} - тег (по умолчанию h3 или берется из первых двух символов mods)
   //- Вызов:
         +label({
@@ -16,33 +16,42 @@ mixin label(params)
     //- БЛОК ПРИСВОЕНИЯ БАЗОВЫХ ЗНАЧЕНИЙ -//
   -
     // список модификаторов
-    let block_name = 'label',
-        main_class = block_name;
+    let block_name = 'input-date-dropdown',
+        main_class = block_name,
+        mods       = 'dropdown, short';
 
     //Проверка на миксин без параметров так как 
     //при пустом params, не деструктурируются значения по умолчанию
     if (typeof(params) == 'undefined') {
-    var params = {text: 'empty params in ='+block_name+'='};
+    var params = {title_1: 'empty params in ='+block_name+'='};
       }
     //деструктуризация params в переменные и задание им значений по умолчанию
     let {
-      text = '',
-      mods = 'h3-style',
-      tag  = mods[0]+mods[1] //первые два символа из mods
-         } = params;
+      title_1 = '',
+      title_2 = title_1,
+      value_1 = '',
+      value_2 = ''
+            } = params;
 
 
     //- ФУНКЦИОНАЛЬНЫЙ БЛОК -//
 
-    if(mods !== '') {
-      let modsList = mods.split(',');
-      for (let i = 0; i < modsList.length; i++) {
-        main_class += ' ' + block_name + '_' + modsList[i].trim();
-      }
-    }
-
 
     //- БЛОК ВЫВОДА -//
 
-  #{tag}(class=main_class)&attributes(attributes)!= text
+  div(class=main_class)&attributes(attributes)!= text
+    +input-field({
+      title: title_1,
+      type : "date",
+      name : "first_date",
+      mods : mods,
+      value: value_1
+    })
+    +input-field({
+      title: title_2,
+      type : "date",
+      name : "last_date",
+      mods : mods,
+      value: value_2
+    })
     block

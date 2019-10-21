@@ -17,6 +17,7 @@
   }
 
   &_h3-style {
+    font-family: $mainFont;
     font-weight: bold;
     text-transform: uppercase;
     font-size: rem($mainFontSize - 2px);

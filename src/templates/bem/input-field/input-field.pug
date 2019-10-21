@@ -71,7 +71,7 @@ mixin input-field(params)
 
   //- БЛОК ВЫВОДА -//
 
-  div(class = main_class)&attributes(attributes)
+  div(class = main_class)
 
     +label({
       text: title,
@@ -85,5 +85,5 @@ mixin input-field(params)
         name  = name,
         value = value,
         placeholder = placeholder
-        )
+        )&attributes(attributes)
     block
