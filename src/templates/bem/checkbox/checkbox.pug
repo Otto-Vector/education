@@ -1,0 +1,60 @@
+
+mixin checkbox(params)
+
+  //- без параметров работает как type='text' без заголовка
+  //- Принимает:
+  //-   params {object}
+  //-     title: ''           {string} - текст с названием (выводится над полем в теге label)//при пустом поле будет input без заголовка
+  //-     type: ''            {string} - модификаторы блока input ('email','date','password', 'dropdown'), при пустом поле и при date значение "text" (обрабатывается в js этого миксина)
+  //-     mods: ''            {string} - ((standart||medium||short) , dropdown)
+  //-     name: ''            {string} - имя блока для Form (при отстутсвии принимает значение type)
+  //-     placeholder: ''     {string} - текст, показываемый, пока ничего не выбрано (аналогично html)
+  //-     value: ''           {string} - редактируемый текст в поле (аналогично html)
+
+  //- Вызов:
+      +checkbox({
+        title: 'Заголовок над полем',
+        type : 'text',
+        mods : 'medium, dropdown',
+        name : '',
+        value: '',
+        placeholder: ''
+      })
+
+
+    //- БЛОК ПРИСВОЕНИЯ БАЗОВЫХ ЗНАЧЕНИЙ -//
+  -
+    let block_name   = 'checkbox',
+        default_type = block_name,
+        main_class   = block_name,
+        input_class  = block_name + '__input';
+
+    //Проверка на миксин без параметров так как 
+    //при пустом params, не деструктурируются значения по умолчанию
+    if (!params) {
+      var params = { title: 'empty params in ='+block_name+'='};
+    }
+
+    //деструктуризация params в переменные и задание им значений по умолчанию
+    let {
+      title       = '',
+      name        = '',
+      value       = name
+                } = params;
+
+
+    //- ФУНКЦИОНАЛЬНЫЙ БЛОК -//
+
+
+  //- БЛОК ВЫВОДА -//
+
+  div(class = main_class)
+
+    label(class= main_class + '__label')
+      input(
+        class = input_class,
+        type  = default_type,
+        name  = name,
+        value = value
+        )&attributes(attributes)
+      = title

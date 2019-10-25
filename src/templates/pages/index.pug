@@ -21,43 +21,52 @@ block content
         +label({text: "This is a label or CTA text", mods: "h3-style"})
       section
         p This is the body text which is used for most of the design, like paragraphs, lists, etc.
-      section
-        +label
-      section
-        +input-field({
-          title: "text field",
-          placeholder: "Email",
-          type: "email"
-          })
-        +input-field({
-          title: "text field",
-          value: "This is pretty awesome!"
-          })
-        +input-field({
-          title: "dropdown",
-          mods: "dropdown",
-          value: "Сколько гостей"
-          })(readonly=true)
-        +input-field({
-          title: "masked text field",
-          type: "date"
-          })
-      section
-        +input-date-dropdown({
-          title_1: "Input Date",
-          value_2: "19.08.2019"
-          })
-        +input-field({
-          title: "filter date dropdown",
-          mods: "medium, dropdown",
-          value: "19 авг - 23 авг"
-          })(readonly=true)
-        +input-field({
-          title: "subscribtion text field",
-          mods: "medium, subscribe",
-          type: "email",
-          placeholder: "Email"
-          })
+      section.elements__content
+        .elements__content_row
+          section
+            +input-field({
+              title: "text field",
+              placeholder: "Email",
+              type: "email"
+              })
+            +input-field({
+              title: "text field",
+              value: "This is pretty awesome!"
+              })
+            +input-field({
+              title: "dropdown",
+              mods: "dropdown",
+              value: "Сколько гостей"
+              })(readonly)
+            +input-field({
+              title: "masked text field",
+              type: "date"
+              })
+          section
+            +input-date-dropdown({
+              title_1: "Input Date",
+              value_2: "19.08.2019"
+              })
+            +input-field({
+              title: "filter date dropdown",
+              mods: "medium, dropdown",
+              value: "19 авг - 23 авг"
+              })(readonly)
+            +input-field({
+              title: "subscribtion text field",
+              mods: "medium, subscribe",
+              type: "email",
+              placeholder: "Email"
+              })
+        .elements__content_row
+          section
+            +label({text: "checkbox buttons"})
+          section
+            +checkbox({title: "можно курить"})
+            +checkbox({title: "можно с питомцами"})(checked)
+        .elements__content_row
+          section
+          +label
       //- span.label_h1-style Можно пригласить гостей
       //- .h1-style English
       //- p.for-icons xText-totot o
