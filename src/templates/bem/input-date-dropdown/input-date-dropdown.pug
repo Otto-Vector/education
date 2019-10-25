@@ -1,30 +1,33 @@
-//- Все примеси в этом файле должны начинаться c имени блока (label)
+//- Все примеси в этом файле должны начинаться c имени блока (input-date-dropdown)
 
 mixin input-date-dropdown(params)
 
   //- Принимает: {object}
   //-   title_1:  {string} - текст первого заголовка
-  //-   title_2:  {string} - текст второго заголовка
-  //-   tag:   {string} - тег (по умолчанию h3 или берется из первых двух символов mods)
+  //-   title_2:  {string} - текст второго заголовка по умолчанию равняется значению title_1
+  //-   value_1:   {string, date} - строковое значение в формате даты "ДД.ММ.ГГГГ"
+  //-   value_2:   {string, date} - строковое значение в формате даты "ДД.ММ.ГГГГ"
   //- Вызов:
-        +label({
-          text: "Title",
-          mods: "h1-style",
-          tag: "label"
+        +input-date-dropdown({
+          title_1: "",
+          title_2: "",
+          value_1: "",
+          value_2: ""
           })
 
     //- БЛОК ПРИСВОЕНИЯ БАЗОВЫХ ЗНАЧЕНИЙ -//
   -
-    // список модификаторов
     let block_name = 'input-date-dropdown',
         main_class = block_name,
-        mods       = 'dropdown, short';
+        input_mods = 'dropdown, short',
+        name_1     = 'first_date',
+        name_2     = 'last_date';
 
     //Проверка на миксин без параметров так как 
     //при пустом params, не деструктурируются значения по умолчанию
-    if (typeof(params) == 'undefined') {
-    var params = {title_1: 'empty params in ='+block_name+'='};
-      }
+    if (!params) {
+      var params = {title_1: 'empty params in ='+block_name+'='};
+    }
     //деструктуризация params в переменные и задание им значений по умолчанию
     let {
       title_1 = '',
@@ -39,19 +42,19 @@ mixin input-date-dropdown(params)
 
     //- БЛОК ВЫВОДА -//
 
-  div(class=main_class)&attributes(attributes)!= text
+  div(class=main_class)&attributes(attributes)
     +input-field({
       title: title_1,
       type : "date",
-      name : "first_date",
-      mods : mods,
+      name : name_1,
+      mods : input_mods,
       value: value_1
-    })
+      })
     +input-field({
       title: title_2,
       type : "date",
-      name : "last_date",
-      mods : mods,
+      name : name_2,
+      mods : input_mods,
       value: value_2
-    })
+      })
     block

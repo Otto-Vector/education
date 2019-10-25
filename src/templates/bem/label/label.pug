@@ -21,9 +21,9 @@ mixin label(params)
 
     //Проверка на миксин без параметров так как 
     //при пустом params, не деструктурируются значения по умолчанию
-    if (typeof(params) == 'undefined') {
-    var params = {text: 'empty params in ='+block_name+'='};
-      }
+    if (!params) {
+      var params = {text: 'empty params in ='+block_name+'='};
+    }
     //деструктуризация params в переменные и задание им значений по умолчанию
     let {
       text = '',

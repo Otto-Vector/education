@@ -31,7 +31,7 @@ mixin input-field(params)
 
     //Проверка на миксин без параметров так как 
     //при пустом params, не деструктурируются значения по умолчанию
-    if (typeof(params) == 'undefined') {
+    if (!params) {
       var params = { placeholder: 'empty params in ='+block_name+'='};
     }
 

@@ -28,11 +28,11 @@ block content
           title: "text field",
           placeholder: "Email",
           type: "email"
-        })
+          })
         +input-field({
           title: "text field",
           value: "This is pretty awesome!"
-        })
+          })
         +input-field({
           title: "dropdown",
           mods: "dropdown",
@@ -41,9 +41,12 @@ block content
         +input-field({
           title: "masked text field",
           type: "date"
-        })
+          })
       section
-        +input-date-dropdown({title_1: "Input Date", value_2: "19.08.2019"})
+        +input-date-dropdown({
+          title_1: "Input Date",
+          value_2: "19.08.2019"
+          })
         +input-field({
           title: "filter date dropdown",
           mods: "medium, dropdown",
@@ -54,7 +57,7 @@ block content
           mods: "medium, subscribe",
           type: "email",
           placeholder: "Email"
-          })(readonly=true)
+          })
       //- span.label_h1-style Можно пригласить гостей
       //- .h1-style English
       //- p.for-icons xText-totot o
