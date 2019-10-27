@@ -1,4 +1,4 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 import './utils/jquery.maskedinput.min.js';
 
 /* маска для даты */

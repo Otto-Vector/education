@@ -3,6 +3,7 @@ const fs = require('fs');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 // Main const
 const PATHS = {
@@ -106,6 +107,10 @@ module.exports = {
     new MiniCssExtractPlugin({
 //      filename: `${PATHS.short.css}[name].[hash].css`,
       filename: `[name].[hash].css`, //css ложим в корень dist, потому что непонятно как вписать относительные пути для шрифтов и картинок из цсс
+    }),
+    new webpack.ProvidePlugin({ //плагин для того, чтобы не надо было импортировать jquery и прочие библиотеки в каждый файл
+      $ :     "jquery",
+      jQuery: "jquery",
     }),
     new CopyWebpackPlugin([
 //      { from: `${PATHS.src}/${PATHS.short.images}`, to: `${PATHS..short.images}` },

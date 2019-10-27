@@ -65,7 +65,8 @@ block content
             +checkbox({title: "Можно курить"})
             +checkbox({title: "Можно с питомцами "})(checked)
             +checkbox({title: "Можно пригласить гостей (до 10 человек)"})(checked)
-            +checkbox()(disabled, checked)
+            +checkbox({title: "Disabled "})(disabled)
+            +checkbox({title: "Disabled / Checked"})(disabled, checked)
 
         .elements__content_row
           section

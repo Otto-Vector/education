@@ -16,9 +16,6 @@
     "type": "git",
     "url": "git+https://github.com/Otto-Vector/education.git"
   },
-  "bugs": {
-    "url": ""
-  },
   "keywords": [
     "webpack",
     "webpack4",
@@ -55,5 +52,9 @@
     "webpack-dev-server": "^3.4.1",
     "webpack-merge": "^4.2.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "homepage": "https://github.com/Otto-Vector/education#readme",
+  "bugs": {
+    "url": "https://github.com/Otto-Vector/education/issues"
+  }
 }
