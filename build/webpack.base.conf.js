@@ -103,7 +103,8 @@ module.exports = {
     }
     ]
   },
-  plugins: [
+  plugins:
+  [
     new MiniCssExtractPlugin({
 //      filename: `${PATHS.short.css}[name].[hash].css`,
       filename: `[name].[hash].css`, //css ложим в корень dist, потому что непонятно как вписать относительные пути для шрифтов и картинок из цсс
@@ -117,7 +118,6 @@ module.exports = {
 //     { from: `${PATHS.src}/${PATHS.short.fonts}`, to: `${PATHS.short.fonts` },
 //     { from: `${PATHS.src}/static`, to: '' },
     ]),
-
     // Automatic creation any html pages (Don't forget to RERUN dev server)
     ...PAGES.map(page => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,

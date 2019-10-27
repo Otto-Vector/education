@@ -1,5 +1,5 @@
 
-mixin checkbox(params)
+mixin radio-button(params)
 
   //- без параметров работает как type='text' без заголовка
   //- Принимает:
@@ -24,22 +24,24 @@ mixin checkbox(params)
 
     //- БЛОК ПРИСВОЕНИЯ БАЗОВЫХ ЗНАЧЕНИЙ -//
   -
-    let block_name   = 'checkbox',
-        default_type = 'checkbox',
+    let block_name   = 'radio-button',
+        default_type = 'radio',
         main_class   = block_name,
         input_class  = block_name + '__input';
 
     //Проверка на миксин без параметров так как 
     //при пустом params, не деструктурируются значения по умолчанию
     if (!params) {
-      var params = { title: 'empty params in ='+block_name+'='};
+      var params = { title_1: 'empty params in ='+block_name+'='};
     }
 
     //деструктуризация params в переменные и задание им значений по умолчанию
     let {
-      title       = '',
-      name        = '',
-      value       = name
+      title_1       = '',
+      title_2       = '',
+      name        = 'empty_name',
+      value_1       = '',
+      value_2       = '',
                 } = params;
 
 
@@ -48,14 +50,24 @@ mixin checkbox(params)
 
   //- БЛОК ВЫВОДА -//
 
-  div(class = main_class)
+  div(class = main_class)&attributes(attributes)
 
     label(class= main_class + '__label')
       input(
         class = input_class,
         type  = default_type,
         name  = name,
-        value = value
+        value = value_1
         )&attributes(attributes)
-      span(class= main_class + '__box')
-      = title
+      span(class= main_class + '__button')
+      span(class= main_class + '__text')= title_1
+
+    label(class= main_class + '__label')
+      input(
+        class = input_class,
+        type  = default_type,
+        name  = name,
+        value = value_2
+        )&attributes(attributes)
+      span(class= main_class + '__button')
+      span(class= main_class + '__text')= title_2
