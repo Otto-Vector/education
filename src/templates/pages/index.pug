@@ -62,8 +62,11 @@ block content
           section
             +label({text: "checkbox buttons"})
           section
-            +checkbox({title: "можно курить"})
-            +checkbox({title: "можно с питомцами"})(checked)
+            +checkbox({title: "Можно курить"})
+            +checkbox({title: "Можно с питомцами "})(checked)
+            +checkbox({title: "Можно пригласить гостей (до 10 человек)"})(checked)
+            +checkbox()(disabled, checked)
+
         .elements__content_row
           section
           +label
@@ -72,6 +75,6 @@ block content
       //- p.for-icons xText-totot o
       //- label Для проверки "label"
 
-
+  
 
       //- img(src=require('@images/5377691184.jpg') alt="logo")

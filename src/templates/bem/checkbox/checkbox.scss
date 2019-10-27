@@ -1,0 +1,52 @@
+
+.checkbox {
+  width: rem(222);
+
+  &__label {
+    display: block;
+    line-height: rem(18);
+    padding: {
+      left: rem(30);
+      top: rem(5);
+      bottom: rem(5);
+      }
+  }
+
+  &__input {
+  @include invisible;
+  }
+
+  &__box {
+    position: absolute;
+    left: 0;
+    border: solid {
+      color: $purple-color;
+      radius: rem(4);
+      width: rem(1);
+      }
+    // background: url('~./bem/checkbox/checkbox/img/check.png') no-repeat;
+    height: rem(20);
+    width: rem(20);
+  }
+
+  &__input:checked + &__box {
+    background: url('~@images/check.png') no-repeat;
+    background-position: 50% 50%;
+  }
+
+  &__input:focus + &__box {
+    box-shadow: rem(0.5) rem(0.5) rem(1.5) rem(0.5) $dark-25;
+  }
+
+  &__input:disabled + &__box {
+    border-color: $dark-25;
+  }
+
+  &__input:disabled:checked + &__box {
+    border-color: $dark-25;
+    background: url('~@images/check.png') no-repeat;
+    background-position: 50% 50%;
+  }
+}
+
+

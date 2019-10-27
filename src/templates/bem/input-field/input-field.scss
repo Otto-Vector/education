@@ -48,14 +48,14 @@
     background: $input-background;
     border: solid {
       color: $dark-25;
-      radius: 4px;
-      width: 1px;
+      radius: rem(4);
+      width: rem(1);
       }
     padding: rem(13) rem(35) rem(13) rem(15);
     width: 100%;
 
     transition-property: border;
-    @include duration();
+    transition-duration: $duration;
 
     &:focus, &:hover {
       border-color: $dark-50;
