@@ -38,7 +38,7 @@
   }
 
   &__input:focus + &__box {
-    box-shadow: rem(0.5) rem(0.5) rem(1.5) rem(0.5) $dark-25;
+    box-shadow: rem(0.25) rem(0.25) rem(1) rem(0.25) $dark-25;
   }
 
   &__input:disabled + &__box {
@@ -46,7 +46,6 @@
   }
 
   &__input:disabled:checked + &__box {
-    border-color: $dark-25;
     background:  {
       image: url("data:image/svg+xml,%3Csvg width='10' height='9' viewBox='0 0 10 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.46439 2.40768L5.70703 6.65032L4.29282 8.06453L0.0501771 3.82189L1.46439 2.40768Z' fill='%23AAA'/%3E%3Cpath d='M8.53546 0.993466L9.94967 2.40768L4.29282 8.06453L2.8786 6.65032L8.53546 0.993466Z' fill='%23AAA'/%3E%3C/svg%3E");
       repeat:  no-repeat;

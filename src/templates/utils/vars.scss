@@ -7,7 +7,7 @@ $dark-100                : #1f2041;
 $dark-75                 : rgba(#1f2041,.75);
 $dark-50                 : rgba(#1f2041,.5);
 $dark-25                 : rgba(#1f2041,.25);
-$dark-5                  : rgba(#1f2041,.05);
+$dark-05                  : rgba(#1f2041,.05);
 $purple-color            : #bc9cff;
 $purple-color2           : #8BA4F9;
 $green-color             : #6fcf97;
@@ -15,6 +15,8 @@ $invalid-color           : #f00; //цвет для неправильно вве
 $input-background        : rgba(255,255,255,0.25);
 $toxin-body-background   : inherit;
 $gradient                : linear-gradient(180deg, $purple-color 0%, $purple-color2 100%);
+$white-color             :#FFF;
+$gray-color              :#AAA;
 //animation
 $duration                : .6s; // время анимаций
 
