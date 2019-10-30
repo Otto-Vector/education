@@ -1,6 +1,6 @@
 
 .radio-button {
-  width: rem(320);
+  // width: rem(320);
 
   &__label {
     display: inline-flex;
@@ -15,7 +15,7 @@
     //сердцевина
     height: rem(12);
     width: rem(12);
-    background-color:  $white-color;
+    background-image: $white-color;
     //белый контур
     border: solid {
       color: $white-color;
@@ -48,6 +48,7 @@
     }
     color: $dark-50;
     user-select: none;
+    transition-property: color;
     transition-duration: $duration/2;
   }
 

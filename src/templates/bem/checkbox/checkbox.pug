@@ -4,21 +4,15 @@ mixin checkbox(params)
   //- без параметров работает как type='text' без заголовка
   //- Принимает:
   //-   params {object}
-  //-     title: ''           {string} - текст с названием (выводится над полем в теге label)//при пустом поле будет input без заголовка
-  //-     type: ''            {string} - модификаторы блока input ('email','date','password', 'dropdown'), при пустом поле и при date значение "text" (обрабатывается в js этого миксина)
-  //-     mods: ''            {string} - ((standart||medium||short) , dropdown)
-  //-     name: ''            {string} - имя блока для Form (при отстутсвии принимает значение type)
-  //-     placeholder: ''     {string} - текст, показываемый, пока ничего не выбрано (аналогично html)
-  //-     value: ''           {string} - редактируемый текст в поле (аналогично html)
+  //-     title: ''           {string} - текст с названием (выводится 
+  //-     name: ''            {string} - имя переменной для данного блока
+  //-     value: ''           {string} - значение переменной для данного блока
 
   //- Вызов:
       +checkbox({
-        title: 'Заголовок над полем',
-        type : 'text',
-        mods : 'medium, dropdown',
+        title: 'Текст после чекбокса',
         name : '',
-        value: '',
-        placeholder: ''
+        value: ''
       })
 
 
@@ -27,7 +21,9 @@ mixin checkbox(params)
     let block_name   = 'checkbox',
         default_type = 'checkbox',
         main_class   = block_name,
-        input_class  = block_name + '__input';
+        label_class  = block_name + '__label',
+        input_class  = block_name + '__input',
+        box_class    = block_name + '__box';
 
     //Проверка на миксин без параметров так как 
     //при пустом params, не деструктурируются значения по умолчанию
@@ -38,8 +34,8 @@ mixin checkbox(params)
     //деструктуризация params в переменные и задание им значений по умолчанию
     let {
       title       = '',
-      name        = '',
-      value       = name
+      name        = 'empty_name',
+      value       = 'empty_value'
                 } = params;
 
 
@@ -50,12 +46,12 @@ mixin checkbox(params)
 
   div(class = main_class)
 
-    label(class= main_class + '__label')
+    label(class= label_class)
       input(
         class = input_class,
         type  = default_type,
         name  = name,
         value = value
         )&attributes(attributes)
-      span(class= main_class + '__box')
+      span(class= box_class)
       = title

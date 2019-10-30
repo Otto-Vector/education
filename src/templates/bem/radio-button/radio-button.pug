@@ -1,24 +1,21 @@
 
 mixin radio-button(params)
-
-  //- без параметров работает как type='text' без заголовка
+  //- Без параметров работает
   //- Принимает:
   //-   params {object}
-  //-     title: ''           {string} - текст с названием (выводится над полем в теге label)//при пустом поле будет input без заголовка
-  //-     type: ''            {string} - модификаторы блока input ('email','date','password', 'dropdown'), при пустом поле и при date значение "text" (обрабатывается в js этого миксина)
-  //-     mods: ''            {string} - ((standart||medium||short) , dropdown)
-  //-     name: ''            {string} - имя блока для Form (при отстутсвии принимает значение type)
-  //-     placeholder: ''     {string} - текст, показываемый, пока ничего не выбрано (аналогично html)
-  //-     value: ''           {string} - редактируемый текст в поле (аналогично html)
+  //-     title: ''           {string} - текст с названием пункта радиокнопки
+  //-     title_2: ''         {string} - текст с названием 2-го пункта радиокнопки (при необходимости)
+  //-     name: ''            {string} - имя переменной данного блока (при отстутсвии принимает значение 'empty_name')
+  //-     value: ''           {string} - задание значений для переменных выбора (при отсутствии принимает значение 'value not set')
+  //-     value_2: ''          {string} - задание значений для переменных выбора (при отсутствии принимает значение 'value_2 not set')
 
   //- Вызов:
-      +checkbox({
-        text: 'название',
-        type : 'text',
-        mods : 'medium, dropdown',
-        name : '',
-        value: '',
-        placeholder: ''
+      +radio-button({
+      title     = '',
+      title_2   = '',
+      name      = '',
+      value     = '',
+      value_2   = ''
       })
 
 
@@ -27,47 +24,46 @@ mixin radio-button(params)
     let block_name   = 'radio-button',
         default_type = 'radio',
         main_class   = block_name,
-        input_class  = block_name + '__input';
+        label_class  = block_name + '__label',
+        input_class  = block_name + '__input',
+        button_class = block_name + '__button'
+        text_class   = block_name + '__text';
 
     //Проверка на миксин без параметров так как 
     //при пустом params, не деструктурируются значения по умолчанию
     if (!params) {
-      var params = { title_1: 'empty params in ='+block_name+'='};
+      var params = { title: 'empty params in ='+block_name+'=' };
     }
 
     //деструктуризация params в переменные и задание им значений по умолчанию
     let {
-      title_1       = '',
-      title_2       = '',
-      name        = 'empty_name',
-      value_1       = '',
-      value_2       = '',
-                } = params;
+      title     = '',
+      title_2   = '',
+      name      = 'empty_name',
+      value     = 'value not set',
+      value_2   = 'value_2 not set'
+              } = params;
 
 
     //- ФУНКЦИОНАЛЬНЫЙ БЛОК -//
 
+    //при пустом втором заголовке, цикл повторяетя 1 раза, иначе - 2
+    let title_indicator=(title_2 == '') ? 1:2;
+
 
   //- БЛОК ВЫВОДА -//
 
-  div(class = main_class)&attributes(attributes)
+  div(class = main_class)
 
-    label(class= main_class + '__label')
-      input(
-        class = input_class,
-        type  = default_type,
-        name  = name,
-        value = value_1
-        )&attributes(attributes)
-      span(class= main_class + '__button')
-      span(class= main_class + '__text')= title_1
+    - for (let i=0; i < title_indicator; i++) {
 
-    label(class= main_class + '__label')
-      input(
-        class = input_class,
-        type  = default_type,
-        name  = name,
-        value = value_2
-        )&attributes(attributes)
-      span(class= main_class + '__button')
-      span(class= main_class + '__text')= title_2
+        label(class= label_class)
+          input(
+            class = input_class,
+            type  = default_type,
+            name  = name,
+            value = (i==0) ? value : value_2
+            )&attributes(attributes)
+          span(class= button_class)
+          span(class= text_class)= (i==0) ? title : title_2
+    - }
