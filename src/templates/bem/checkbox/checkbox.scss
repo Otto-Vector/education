@@ -4,7 +4,7 @@
 
   &__label {
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
   }
 
   &__input {
@@ -48,6 +48,8 @@
     color: $dark-50;
     padding: {
       left: rem(10);
+      bottom: rem(10);
+      top: rem(1);
       }
     user-select: none;
   }

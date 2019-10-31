@@ -1,0 +1,71 @@
+
+.toggle {
+  width: rem(260);
+
+  &__label {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__input {
+  @include invisible;
+  }
+
+  &__box {
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+    flex-shrink: 0;
+    height: rem(20);
+    width: rem(40);
+
+    border: solid {
+      color: $dark-25;
+      radius: rem(10);
+      width: rem(1);
+      }
+    transition-duration: $duration;
+  }
+
+  &__inbox {
+    display: inline-block;
+    margin: 0 4px;
+    height: rem(12);
+    width: rem(12);
+    border-radius: 50%;
+    background-image: $gradient;
+    filter: grayscale(1);
+    transition-duration: $duration;
+  }
+
+  &__input:checked + &__box {
+    border-color: $purple-color;
+  }
+
+  &__input:checked + &__box > &__inbox {
+    filter: grayscale(0); 
+    margin-left: 22px;
+  }
+
+  &__input:focus + &__box {
+
+  }
+
+  &__input:disabled + &__box {
+
+  }
+
+  &__input:disabled:checked + &__box {
+
+  }
+
+
+  &__text {
+    line-height: rem(24);
+    color: $dark-75;
+    padding-left: rem(10);
+    user-select: none;
+  }
+}
+
+
