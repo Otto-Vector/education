@@ -13,6 +13,7 @@
 
   &__button {
     //сердцевина
+    flex-shrink: 0;
     height: rem(12);
     width: rem(12);
     background-image: $white-color;

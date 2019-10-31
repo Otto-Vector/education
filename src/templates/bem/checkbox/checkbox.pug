@@ -23,7 +23,8 @@ mixin checkbox(params)
         main_class   = block_name,
         label_class  = block_name + '__label',
         input_class  = block_name + '__input',
-        box_class    = block_name + '__box';
+        box_class    = block_name + '__box',
+        text_class   = block_name + '__text';
 
     //Проверка на миксин без параметров так как 
     //при пустом params, не деструктурируются значения по умолчанию
@@ -54,4 +55,4 @@ mixin checkbox(params)
         value = value
         )&attributes(attributes)
       span(class= box_class)
-      = title
+      span(class= text_class)= title

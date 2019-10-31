@@ -1,6 +1,7 @@
 
 mixin input-date-dropdown(params)
 
+  //- Без параметров работает
   //- Принимает: {object}
   //-   title_1:  {string} - текст первого заголовка
   //-   title_2:  {string} - текст второго заголовка по умолчанию равняется значению title_1
@@ -16,11 +17,11 @@ mixin input-date-dropdown(params)
 
     //- БЛОК ПРИСВОЕНИЯ БАЗОВЫХ ЗНАЧЕНИЙ -//
   -
-    let block_name = 'input-date-dropdown',
-        main_class = block_name,
-        input_mods = 'dropdown, short',
-        name_1     = 'first_date',
-        name_2     = 'last_date';
+    let block_name    = 'input-date-dropdown',
+        main_class    = block_name,
+        input_mods    = 'dropdown, short',
+        input_name_1  = 'first_date',
+        input_name_2  = 'last_date';
 
     //Проверка на миксин без параметров так как 
     //при пустом params, не деструктурируются значения по умолчанию
@@ -42,18 +43,13 @@ mixin input-date-dropdown(params)
     //- БЛОК ВЫВОДА -//
 
   div(class=main_class)&attributes(attributes)
-    +input-field({
-      title: title_1,
-      type : "date",
-      name : name_1,
-      mods : input_mods,
-      value: value_1
-      })
-    +input-field({
-      title: title_2,
-      type : "date",
-      name : name_2,
-      mods : input_mods,
-      value: value_2
-      })
+    - for (let i=0; i<2; i++) {
+      +input-field({
+        title: (i==0) ? title_1 : title_2,
+        type : "date",
+        name : (i==0) ? input_name_1 : input_name_2,
+        mods : input_mods,
+        value: (i==0) ? value_1 : value_2
+        })
+    - }
     block

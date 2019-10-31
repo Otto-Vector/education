@@ -27,6 +27,7 @@ mixin input-field(params)
     let block_name   = 'input-field',
         default_type = 'text',
         main_class   = block_name,
+        label_class  = block_name + '__label',
         input_class  = block_name + '__input';
 
     //Проверка на миксин без параметров так как 
@@ -77,7 +78,7 @@ mixin input-field(params)
       text: title,
       mods: 'h3-style',
       tag: 'label'
-      })(class= block_name+'__label')
+      })(class= label_class)
 
       input(
         class = input_class,
