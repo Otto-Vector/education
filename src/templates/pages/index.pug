@@ -78,8 +78,9 @@ block content
             +toggle({title: "Получать спецпредложения"})
           section
             +label({text: "like button"})
-          section
-            +toggle
+          section.elements__like-buttons-area
+            +like-button({value: '2'})
+            +like-button({value: "12", mods: "active"})
         .elements__content_row
           section
           +label

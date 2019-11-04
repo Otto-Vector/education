@@ -1,0 +1,53 @@
+
+mixin like-button(params)
+
+  //- без параметров работает как type='text' без заголовка
+  //- Принимает:
+  //-   params {object}
+  //-     title: ''           {string} - текст с названием (выводится 
+  //-     name: ''            {string} - имя переменной для данного блока
+  //-     value: ''           {string} - значение переменной для данного блока
+
+  //- Вызов:
+      +checkbox({
+        title: 'Текст после чекбокса',
+        name : '',
+        value: ''
+      })
+
+
+    //- БЛОК ПРИСВОЕНИЯ БАЗОВЫХ ЗНАЧЕНИЙ -//
+  -
+    let block_name   = 'like-button',
+        default_type = 'checkbox',
+        main_class   = block_name,
+        text_class   = block_name + '__text';
+
+    //Проверка на миксин без параметров так как 
+    //при пустом params, не деструктурируются значения по умолчанию
+    if (!params) {
+      var params = { title: '0'};
+    }
+
+
+
+    //деструктуризация params в переменные и задание им значений по умолчанию
+    let {
+      value       = '0',
+      mods        = ''
+                } = params;
+
+    //- ФУНКЦИОНАЛЬНЫЙ БЛОК -//
+    //обработка модификаций главного блока
+    if(mods !== '') {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        main_class += ' ' + block_name + '_' + modsList[i].trim();
+        text_class += ' ' + text_class + '_' + modsList[i].trim();
+      }
+    }
+
+  //- БЛОК ВЫВОДА -//
+
+  div(class = main_class)
+    span(class= text_class)= value
