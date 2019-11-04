@@ -16,7 +16,7 @@
     height: rem(20);
     width: rem(20);
     border: solid {
-      color: $purple-color;
+      color: $dark-25;
       radius: rem(4);
       width: rem(1);
       }
@@ -28,14 +28,13 @@
       repeat:  no-repeat;
       position: 50% 50%;
     }
+    border-color: $purple-color;
   }
 
   &__input:focus + &__box {
-    box-shadow: rem(0.25) rem(0.25) rem(1) rem(0.25) $dark-25;
   }
 
   &__input:disabled + &__box {
-    border-color: $dark-25;
   }
 
   &__input:disabled:checked + &__box {//значок cheсk завёрнут в svg (серый цвет #AAA)

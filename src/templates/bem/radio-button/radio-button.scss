@@ -42,6 +42,7 @@
     background-color: $gray-color;
   }
 
+
   &__text {
     padding: {
      left: rem(10);
@@ -58,7 +59,6 @@
   }
 
   &__input:focus ~ &__text {
-    text-decoration: underline dotted;
   }
 }
 

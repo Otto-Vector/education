@@ -18,13 +18,12 @@
     flex-shrink: 0;
     height: rem(20);
     width: rem(40);
-
     border: solid {
       color: $dark-25;
       radius: rem(10);
       width: rem(1);
       }
-    transition-duration: $duration;
+    transition-duration: $duration/2;
   }
 
   &__inbox {
@@ -35,7 +34,7 @@
     border-radius: 50%;
     background-image: $gradient;
     filter: grayscale(1);
-    transition-duration: $duration;
+    transition-duration: $duration/2;
   }
 
   &__input:checked + &__box {
@@ -48,15 +47,12 @@
   }
 
   &__input:focus + &__box {
-
   }
 
   &__input:disabled + &__box {
-
   }
 
   &__input:disabled:checked + &__box {
-
   }
 
 
