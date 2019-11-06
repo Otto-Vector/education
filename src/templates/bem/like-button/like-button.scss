@@ -1,5 +1,6 @@
 
 .like-button {
+  flex-shrink: 0;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -45,5 +46,3 @@
     }
   }
 }
-
-

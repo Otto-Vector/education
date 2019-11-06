@@ -79,8 +79,17 @@ block content
           section
             +label({text: "like button"})
           section.elements__like-buttons-area
-            +like-button({value: '2'})
-            +like-button({value: "12", mods: "active"})
+            +like-button({value: 2})
+            +like-button({value: 12, mods: "active"})
+          section
+            +label({text: "rate button"})
+          section
+            +rate-button({value: 0})
+            +rate-button({value: 1})
+            +rate-button({value: 2})
+            +rate-button({value: 3})
+            +rate-button({value: 4})
+            +rate-button({value: "oiubh"})
         .elements__content_row
           section
           +label

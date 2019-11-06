@@ -12,24 +12,25 @@
   }
 
   &__button {
-    //сердцевина
     flex-shrink: 0;
-    height: rem(12);
-    width: rem(12);
-    background-image: $white-color;
-    //белый контур
+    box-sizing: border-box;
+    height: rem(20);
+    width: rem(20);
+    background-color: $white-color;
+    padding: rem(3);
     border: solid {
-      color: $white-color;
+      color: $dark-25;
       radius: 50%;
-      width: rem(3);
+      width: rem(1);
       }
-    //вместо бордера
-    box-shadow: 0 0 0 rem(1) $dark-25;
+    transition-duration: $duration/2;
   }
 
   &__input:checked + &__button {
-    background-image: $gradient;
-    box-shadow: 0 0 0 rem(1) $purple-color;
+    background-image: $gradient,
+     radial-gradient($white-color,$white-color);
+    background-clip: content-box, padding-box;
+    border-color: $purple-color;
   }
 
   &__input:focus + &__button {

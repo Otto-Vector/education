@@ -35,6 +35,7 @@
   }
 
   &__input:disabled + &__box {
+    border-color: $dark-25;
   }
 
   &__input:disabled:checked + &__box {//значок cheсk завёрнут в svg (серый цвет #AAA)

@@ -1,14 +1,14 @@
 
-mixin like-button(params)
+mixin rate-button(params)
 
   //- без параметров работает
   //- Принимает:
   //-   params {object}
-  //-     value: ''           {string} - базовое количество лайков
-  //-     mods : ''           {string} - передаётся значение "active"
+  //-     value: ''           {integer} - количество звёзд
+  //-     mods : ''           {string} - пока не придумал зачем
 
   //- Вызов:
-      +like-button({
+      +rate-button({
         value: '',
         mods : ''
       })
@@ -16,35 +16,29 @@ mixin like-button(params)
 
     //- БЛОК ПРИСВОЕНИЯ БАЗОВЫХ ЗНАЧЕНИЙ -//
   -
-    let block_name   = 'like-button',
+    let block_name   = 'rate-button',
         main_class   = block_name,
-        text_class   = block_name + '__text';
+        star_class   = block_name + '__star';
 
     //Проверка на миксин без параметров так как 
     //при пустом params, не деструктурируются значения по умолчанию
     if (!params) {
-      var params = { value: '0'};
+      var params = { value: 0 };
     }
 
     //деструктуризация params в переменные и задание им значений по умолчанию
     let {
-      value       = '0',
-      mods        = ''
+      value       = 0,
+      // mods        = ''
                 } = params;
 
 
     //- ФУНКЦИОНАЛЬНЫЙ БЛОК -//
-    //обработка модификаций главного и подчинённого блока
-    if(mods !== '') {
-      var modsList = mods.split(',');
-      for (var i = 0; i < modsList.length; i++) {
-        main_class += ' ' + block_name + '_' + modsList[i].trim();
-        text_class += ' ' + text_class + '_' + modsList[i].trim();
-      }
-    }
-
+      value = (value < 0 || value > 5) ? 0 : value;
 
   //- БЛОК ВЫВОДА -//
 
   div(class = main_class)
-    span(class= text_class)= value
+    - for (let i=0; i < 5; i++) {
+        div(class= (i >= value) ? star_class : star_class+' '+star_class+"_active")
+    - }
