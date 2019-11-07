@@ -12,9 +12,9 @@
   }
 
   &__box {
-    display: inline-flex;
+    display: inherit;
     box-sizing: border-box;
-    align-items: center;
+    padding: rem(3);
     background-color: $white-color;
     height: rem(20);
     width: rem(40);
@@ -27,9 +27,8 @@
   }
 
   &__inbox {
-    display: inline-block;
     flex-shrink: 0;
-    margin: 0 rem(4);
+    display: inline-block;
     height: rem(12);
     width: rem(12);
     border-radius: 50%;
@@ -39,11 +38,12 @@
 
   &__input:checked + &__box {
     border-color: $purple-color;
+    padding-left: rem(22);
   }
 
   &__input:checked + &__box > &__inbox {
     background-image: $gradient;
-    margin-left: rem(22);
+    // margin-left: rem(18);
   }
 
   &__input:focus + &__box {

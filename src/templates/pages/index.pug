@@ -83,16 +83,13 @@ block content
             +like-button({value: 12, mods: "active"})
           section
             +label({text: "rate button"})
-          section
-            +rate-button({value: 0})
-            +rate-button({value: 1})
-            +rate-button({value: 2})
-            +rate-button({value: 3})
-            +rate-button({value: 4})
-            +rate-button({value: "oiubh"})
+          section.elements__rate-button-area
+            +rate-button({value: 4, id: "number_5"})
+            +rate-button({value: 5, id: "number_4"})
         .elements__content_row
           section
-          +label
-  
+            +label({text: "range slider"})
+          section
+            +label({text: "buttons"})
 
       //- img(src=require('@images/5377691184.jpg') alt="logo")

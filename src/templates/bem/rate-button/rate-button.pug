@@ -5,12 +5,12 @@ mixin rate-button(params)
   //- Принимает:
   //-   params {object}
   //-     value: ''           {integer} - количество звёзд
-  //-     mods : ''           {string} - пока не придумал зачем
+  //-     id   : ''           {string} - идентификатор свойства, к которому принадлежит рейтинг
 
   //- Вызов:
       +rate-button({
         value: '',
-        mods : ''
+        id : ''
       })
 
 
@@ -29,7 +29,7 @@ mixin rate-button(params)
     //деструктуризация params в переменные и задание им значений по умолчанию
     let {
       value       = 0,
-      // mods        = ''
+      id          = '000'
                 } = params;
 
 
@@ -38,7 +38,8 @@ mixin rate-button(params)
 
   //- БЛОК ВЫВОДА -//
 
-  div(class = main_class)
-    - for (let i=0; i < 5; i++) {
-        div(class= (i >= value) ? star_class : star_class+' '+star_class+"_active")
+  div(class = main_class data-id= id)
+    - for (let i=5; i>0; i--) {
+        div(class= (i > value) ? star_class : star_class+' '+star_class+"_active",
+          js-data-id= i)
     - }

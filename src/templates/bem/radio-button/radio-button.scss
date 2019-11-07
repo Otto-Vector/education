@@ -28,7 +28,7 @@
 
   &__input:checked + &__button {
     background-image: $gradient,
-     radial-gradient($white-color,$white-color);
+     linear-gradient($white-color,$white-color);
     background-clip: content-box, padding-box;
     border-color: $purple-color;
   }

@@ -19,7 +19,15 @@
     width: 100px;
     
   }
-  
+  &__rate-button-area {
+    display: flex;
+
+    & .rate-button {
+      margin: 0 5px;
+    }
+  }
+
+
   &__footer {
 
   }
