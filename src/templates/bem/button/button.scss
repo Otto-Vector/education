@@ -1,0 +1,30 @@
+.button {
+
+
+  &__link {
+    // display: inline-block;
+  }
+
+  &__text {
+    display: inline-block;
+    color: $white-color;
+    border-radius: rem(25);
+    background-image: $gradient;
+    padding: rem(15) rem(20);
+
+    &:hover {
+      color: $purple-color;
+      border: solid {
+        width: rem(2);
+        color: transparent;
+        };
+      padding: rem(13) rem(18);
+      background: {
+        image: linear-gradient($white-color, $white-color),
+         linear-gradient($white-color, $white-color),
+          $gradient2;
+        clip: content-box, padding-box, border-box;
+        };
+    }
+  }
+}

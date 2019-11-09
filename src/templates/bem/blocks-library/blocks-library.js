@@ -5,3 +5,4 @@ import '../checkbox/checkbox.js';
 import '../toggle/toggle.js';
 import '../like-button/like-button.js';
 import '../rate-button/rate-button.js';
+import '../button/button.js';

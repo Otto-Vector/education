@@ -15,7 +15,7 @@ $invalid-color           : #f00; //цвет для неправильно вве
 $input-background        : rgba(255,255,255,0.25);
 $toxin-body-background   : inherit;
 $gradient                : linear-gradient(180deg, $purple-color 0%, $purple-color2 100%);
-$gradient2               : linear-gradient(180deg, $dark-25, $dark-25);
+$gradient2               : linear-gradient(180deg, $purple-color2 0%, $purple-color 100%);
 $white-color             :#FFF;
 $gray-color              :#AAA;
 //animation
