@@ -27,6 +27,19 @@
     }
   }
 
+  &__button-area {
+    display: flex;
+    flex-flow: column wrap;
+
+    &_section {
+    flex-flow: row nowrap;
+
+    & .button {
+      margin-right: 20px;
+    }
+    }
+  }
+
 
   &__footer {
 

@@ -91,10 +91,15 @@ block content
             +label({text: "range slider"})
           section
             +label({text: "buttons"})
-          section
-            +button()
-            +button({mods: "filled, hovered"})
-            +button({mods: "bordered"})
-            +button({mods: "bordered, hovered"})
+          section.elements__button-area
+            section.elements__button-area_section
+              +button()
+              +button({mods: "filled, hovered"})
+            section.elements__button-area_section
+              +button({mods: "bordered"})
+              +button({mods: "bordered, hovered"})
+            section.elements__button-area_section
+              +button({mods: "none"})
+              +button({mods: "none, hovered"})
 
       //- img(src=require('@images/5377691184.jpg') alt="logo")
