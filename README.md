@@ -6,6 +6,4 @@
 * `src/assets/img` - put images here. Don't forget to use correct path: `assets/img/some.jpg`
 * `src/js` - put custom app scripts here
 * `src/index.js` - main app file where you include/import all required libs and init app
-* `src/components` - folder with custom `.vue` components
-* `src/store` - app store for vue
 * `static/` - folder with extra static assets that will be copied into output folder

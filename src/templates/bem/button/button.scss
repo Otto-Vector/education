@@ -1,6 +1,5 @@
 .button {
 
-
   &__link {
     // display: inline-block;
   }
@@ -10,6 +9,7 @@
     display: inline-block;
     border-radius: rem(25);
     color: $purple-color;
+    @include duration($duration/2);
 
     &_filled {
       color: $white-color;
