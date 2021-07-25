@@ -39,5 +39,16 @@
       opacity: .5;
     }
 
+    &:active {
+      transform: translateY(2px);
+    }
+
+    &:focus {
+      box-shadow: 0 2px 2px;
+    }
+
+    &:focus:active {
+      box-shadow: none;
+    }
   }
 }

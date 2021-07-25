@@ -4,13 +4,15 @@ mixin button(params)
   //- без параметров работает
   //- Принимает:
   //-   params {object}
-  //-     value: ''           {integer} - количество звёзд
-  //-     id   : ''           {string} - идентификатор свойства, к которому принадлежит рейтинг
+  //-     link: ''            {string} - ссылка на действие
+  //-     text: ''            {string} - текст внутри кнопки
+  //-     mods: ''            {string} - стили кнопки (none|filled|bordered)&hovered
 
   //- Вызов:
       +button({
-        value: '',
-        id : ''
+        link: '#url',
+        text: 'Название кнопки'
+        mods: 'bordered, hovered'
       }) 
 
 
